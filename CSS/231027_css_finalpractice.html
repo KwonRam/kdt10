@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *:not(form) {
+            background-color: lightgray;
+        }
+        form h4 {
+            background-color: bisque;
+            width: 32vw;
+            height: 5vw;
+            text-align: center;
+            line-height: 5vw;
+            border-top: solid black;
+            border-bottom: solid black;
+        }
+        form input {
+            background-color: ivory;
+            border-radius: 1vh;
+        }
+        form textarea {
+            background-color: lavenderblush;
+            padding: 2vh;
+            overflow: auto;
+        }
+        .press:hover {
+            background-color: blanchedalmond;
+            font-weight: bolder;
+            border: 3px solid;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h4>설문조사</h4>
+        이름<input type="text"><br>
+        이메일<input type="email" placeholder="love@example.com">
+        <h4>나이</h4>
+        <input type="radio" name="age" value="10대" checked>10대
+        <input type="radio" name="age" value="20대">20대
+        <input type="radio" name="age" value="30대">30대
+        <input type="radio" name="age" value="40대">40대
+        <h4>원하는 강의(복수 응답 가능)</h4>
+        <input type="checkbox" name="lecture" value="html" checked>html
+        <input type="checkbox" name="lecture" value="javascript">javascript
+        <input type="checkbox" name="lecture" value="css">css
+        <br><br>
+        <textarea cols="50" rows="10" placeholder="하고 싶은 말을 써주세요~"></textarea>
+        <input type="button" value="제출" class="press">
+    </form>
+</body>
+</html>
