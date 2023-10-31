@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let colors = ["Red", "Orange","Yellow","Green","Blue","Pruple","Black"];
+        console.log(colors[2]);
+        colors.push("Coral");
+        console.log(colors);
+        console.log(colors.indexOf("Black"));
+        let colorsReverse = colors.reverse();
+        console.log(colorsReverse);
+
+        let Minsu = {
+            name: '민수',
+            age: 27,
+            enjoyMovie: true,
+            new: function() {
+                return '새 컴퓨터';
+            },
+        }
+        console.log(Minsu);
+//console.log('내 이름은' + myName + '입니다.');
+        console.log(typeof(7) + " isn't " + typeof("가")+" data type.");
+        console.log("Typeof를 boolean이나 null에 사용하면, " + typeof(null)+" 결과를 얻을 수 있습니다.");
+
+        let mathScore= prompt("수학점수");
+        let engScore= prompt("영어점수");
+        let avgScore = (Number(mathScore)+Number(engScore))/2;
+        console.log(avgScore);
+
+    </script>
+</head>
+<body>
+</body>
+</html>

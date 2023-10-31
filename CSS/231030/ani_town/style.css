@@ -3,10 +3,10 @@
   position, animation 등을 활용하여 과제를 완성해주세요!
 */
 body {
-  width: 100%;
-  position: absolute;
+  width: 100vw;
+  height: 100vh;
   background-color: #636888;
-
+  position: absolute;
   animation-name: sky_color_change;
   animation-duration: 10s;
 }
@@ -15,38 +15,63 @@ section {
   width: 700px;
   height: 450px;
   position: absolute;
+  left: 500px;
+  bottom: 0;
+  z-index: 1;
+
 }
 
 section .sky {
   width: 100%;
   height: 100%;
   position: absolute;
+  z-index: 2;
 }
 
 section .sky .sun {
   width: 180px;
-
+  position: absolute;
+  left: -300px;
+  top: -300px;
   animation-name: sun_rotating;
-  animation-duration: 5s;
+  animation-duration: 10s;
+  z-index: 7;
 }
 
 section .sky .moon {
   width: 160px;
+  position: absolute;
+  left: -300px;
+  top: -300px;
   animation-name: moon_rotating;
-  animation-duration: 5s;
-  animation-delay: 5s;
+  animation-duration: 10s;
+  z-index: 6;
 }
 
 section .sky .cloud_1 {
   width: 160px;
+  position: absolute;
+  left: -300px;
+  top: -100px;
+  animation-name: cloud1_moving;
+  animation-duration: 10s;
+  z-index: 5;
 }
 
 section .sky .cloud_2 {
   width: 90px;
+  position: absolute;
+  left: -180px;
+  top: -20px;
+  animation-name: cloud2_moving;
+  animation-duration: 10s;
+  z-index: 4;
 }
 
 section .city .city_img {
   width: 100%;
+  position: absolute;
+  z-index: 3;
 }
 
 /* ANIMATION */
@@ -60,13 +85,20 @@ section .city .city_img {
 */
 
 @keyframes sun_rotating {
-  from {
+  0% {
     opacity: 1;
     transform: rotate(0deg);
   }
-  to {
+  40%{
+    opacity: 1;
+    transform: rotate(135deg);
+  }
+  80% {
     opacity: 0;
-    transform: rotate(270deg);
+    transform: rotate(180deg);
+  }
+  100%{
+    opacity: 0;
   }
 }
 
@@ -94,12 +126,40 @@ section .city .city_img {
     transform: rotate(0deg);
   }
   50%{
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  90%{
     opacity: 1;
     transform: rotate(135deg);
   }
   to {
-    opacity: 0;
-    transform: rotate(270deg);
+    opacity: 0.7;
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes cloud1_moving {
+  0% {
+    left: -300px;
+  }
+  50% {
+    left: 800px;
+  }
+  100% {
+    left: -300px;
+  }
+}
+
+@keyframes cloud2_moving {
+  0% {
+    left: -180px;
+  }
+  50% {
+    left: 700px;
+  }
+  100% {
+    left: -180px;
   }
 }
 /*
