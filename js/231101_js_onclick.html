@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add() {
+            let num1=prompt('숫자 1')
+            let num2=prompt('숫자 2')
+            return Number(num1)+Number(num2);
+        }
+        function sub() {
+            let num1=prompt('숫자 1')
+            let num2=prompt('숫자 2')
+            return Number(num1)-Number(num2);
+        }
+        function devide() {
+            let num1=prompt('숫자 1')
+            let num2=prompt('숫자 2')
+            return Number(num1)/Number(num2);
+        }
+        function mul() {
+            let num1=prompt('숫자 1')
+            let num2=prompt('숫자 2')
+            return Number(num1)*Number(num2);
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="alert(add())">add</button>
+    <button type="button" onclick="alert(sub())">sub</button>
+    <button type="button" onclick="alert(devide())">devide</button>
+    <button type="button" onclick="alert(mul())">mul</button>
+</body>
+</html>

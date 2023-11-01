@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        functionName();
+
+        function functionName() {
+            console.log('안녕하세요');
+        }
+
+        let functionName2 = function() {
+            console.log('안녕하세요');
+        }
+
+        functionName2();
+
+        let functionName3 = () => {
+            console.log('안녕하세요');
+        }
+
+        functionName3();
+
+        function multifly(a,b) {
+            return a*b;
+        }
+
+        function square(c) {
+            c= prompt("숫자를 입력");
+            return c*c;
+        }
+
+        console.log(multifly(3,7));
+        console.log(square(4));
+
+
+        let result = hello(홍길동, 10);
+        console.log('name: ', name)
+
+
+        function test() {
+            alert('on click test');
+        }
+    </script>
+
+
+</head>
+<body>
+    <div style="width:100px; height: 100px; border: 10px;" onclick= "test();"> click</div>
+</body>
+</html>

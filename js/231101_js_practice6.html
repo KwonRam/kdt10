@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let condition = prompt('숫자를 입력하세요');
+        /*
+        for(let n=0; n < Number(condition) ; n++) {
+            if((n % 13 == 0) && (n % 2 == 1 ))
+            console.log(n + '은 13의 배수이면서 홀수 입니다')
+        }
+
+        for(let m=0; m<10 ; m++) {
+            for(let l=0; l<10; l++){
+                if(l==1  || l== 3 || l== 6 || l== 7 || l==8 || l==0 ) {
+                    console.log(m + ' 곱하기 '+ l +' 은 '+ m*l);
+                }
+                else {
+                    console.log(m + ' 곱하기 '+ l +' 는 '+ m*l);
+                }
+            }
+        }
+        */
+        let sum=0;
+        let t=0;
+        while(t <= condition) {
+            if(t!=0&&((t % 2 ==0) || (t%3==0))){
+                sum=sum+t;
+                console.log(t+'를 더함')
+                
+            }
+            else if (t>100) {
+                break;
+            }
+            t++;
+        }
+        console.log(sum);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>l
