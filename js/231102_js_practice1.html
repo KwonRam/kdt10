@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let numbers=[];
+        for(let i=1; i<=100 ; i++) {
+            numbers.push(i);
+            //console.log(numbers);
+        }
+        console.log(numbers);
+        let sum=0;
+        for(let index of numbers) {
+            //console.log(index-1);
+            //console.log(numbers[index-1]);
+            sum=sum+numbers[index-1];
+            //console.log(sum);
+        }
+        console.log(sum);
+        let sum2=0;
+        numbers.forEach((item) => {
+            //console.log(item);
+            sum2=sum2+item;
+            //console.log(sum2);
+        });
+        console.log(sum2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

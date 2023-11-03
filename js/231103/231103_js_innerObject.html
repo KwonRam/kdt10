@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //표준 내장 객체
+        //: 자바스크립트가 기본적으로 가지고 있는 개체
+
+        // 1. Date
+        let now = new Date();
+        console.log(now);
+        console.log(now.getFullYear(),"년");
+        console.log(now.getMonth()+1, "월");//0~11 달
+        console.log(now.getDate(),'일');
+
+        console.log(now.getHours(),'시');
+        console.log(now.getMinutes(), '분');
+        console.log(now.getSeconds(),'초');
+        console.log(now.getDay(),'요일');//0~6 요일 0 
+
+        if(now.getDay()==6 || now.getDay()==0){
+            console.log("주말")
+        }
+        else{
+            console.log('평일')
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

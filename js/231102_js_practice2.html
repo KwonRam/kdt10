@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fruits1 =["사과","딸기","파인애플","수박","참외","오렌지","자두","망고"]
+        let fruits2 =["수박","사과","참외","오렌지","파인애플","망고"];
+
+        let same=[];
+        for(i=0;i<fruits1.length;i++) {
+            for(j=0; j<fruits2.length; j++){
+                if (fruits1[i]===fruits2[j]) {
+                    same.push(fruits2[j]);
+                }
+            }
+        }
+        console.log(same);
+
+        let same2=[];
+        for(m=0; m<fruits1.length;m++){
+            if (fruits2.includes(fruits1[m])==true) {
+                same2.push(fruits1[m]);
+            }
+        }
+        console.log(same2);
+
+        let diff=[];
+        for(n=0;n<fruits1.length;n++) {
+            if (fruits2.includes(fruits1[n])==false){
+                diff.push(fruits1[n]);
+            }
+        }
+        console.log(diff);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

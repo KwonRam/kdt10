@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //let helloList = document.createElement('table');
+
+        function printHelloList() {
+            let helloList = document.createElement('table');
+            let tr1 = helloList.appendChild(document.createElement('tr'));
+            let td1 = tr1.appendChild(document.createElement('td'));
+            let td2 = tr1.appendChild(document.createElement('td'));
+            let td3 = tr1.appendChild(document.createElement('td'));
+            let td4 = tr1.appendChild(document.createElement('td'));
+            td1.innerText = "번호";
+            td2.innerText = document.getElementById("value1").value;
+            td3.innerText = document.getElementById("value2").value;
+            td4.innerText = Date();
+        }
+
+        function expandHiList() {
+            let hiTable = document.getElementById("listOfHellow");
+            if ((document.getElementById("value1").value != "") && (document.getElementById("value2").value != "")) {
+                let newRow = hiTable.appendChild(document.createElement('tr'));
+                let td1 = newRow.appendChild(document.createElement('td'));
+                let td2 = newRow.appendChild(document.createElement('td'));
+                let td3 = newRow.appendChild(document.createElement('td'));
+                let td4 = newRow.appendChild(document.createElement('td'));
+                console.log(hiTable.childNodes);
+                td1.innerText = hiTable.childElementCount - 1;
+                td2.innerText = document.getElementById("value1").value;
+                td3.innerText = document.getElementById("value2").value;
+                td4.innerText = Date();
+            }
+        }
+
+        function reduceHiList() {
+            let hiTable = document.getElementById("listOfHellow");
+            let getLastRow = hiTable.children[hiTable.childElementCount - 1];
+            if(hiTable.childElementCount >= 2) {
+            let delRow = hiTable.removeChild(getLastRow);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>방명록입니다^^</h1>
+    <div>작성자:<input type="text" id="value1" value=""></div>
+    <br>
+    <div>내용:<input type="text" id="value2" value=""></div>
+    <br>
+    <div><input type="button" id="btn1" value="방명록 작성" onclick="expandHiList()"></div>
+    <div><input type="button" id="btn2" value="방명록 삭제" onclick="reduceHiList()"></div>
+    <br>
+
+    <table id="listOfHellow"
+        style="border: 2px solid; border-color: black; border-collapse: collapse; text-align: center;">
+        <tr class="r1" style="background-color: yellowgreen;">
+            <th class="h1" style="border: 1px solid; padding: 15px 10px">번호</th>
+            <th class="h2" style="border: 1px solid; padding: 15px 10px">작성자</th>
+            <th class="h3" style="border: 1px solid; padding: 15px 10px">내용</th>
+            <th class="h4" style="border: 1px solid; padding: 15px 10px">작성일</th>
+        </tr>
+    </table>
+
+</body>
+
+</html>

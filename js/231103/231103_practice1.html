@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function printValue() {
+            let v1="";
+            let v2="";
+            let v3="";
+            let v4=0;
+            v1 = document.getElementById("value1").value;
+            v2 = document.getElementById("value2").value;
+            v3 = document.getElementById("value3").value;
+            if (v3=="+") {
+                v4 = Number(v1)+Number(v2);
+            }
+            else if (v3== "-") {
+                v4= Number(v1)-Number(v2);
+            }
+            else if (v3== "/") {
+                v4= Number(v1)/Number(v2);
+            }
+            else if (v3== "*") {
+                v4= Number(v1)*Number(v2);
+            }
+            else if (v3=="") {
+                v4="연산자를 입력";
+            }
+            else {
+                v4="연산자는 + - * / 중 하나";
+            }
+            document.getElementById("value4").value=v4;
+        }
+
+        function removeValue() {
+            document.getElementById("value1").value=""
+            document.getElementById("value2").value=""
+            document.getElementById("value3").value=""
+            document.getElementById("value4").value=""
+        }
+
+    </script>
+</head>
+<body>
+    <div>값1:<input type="text" id="value1" value="" ></div>
+    <div>값2:<input type="text" id="value2" value="" ></div>
+    <div>연산자:<input type="text" id="value3" value="" ></div>
+    <div>결과값:<input type="text" id="value4" value="" ></div>
+    <div><input type="button" id="btn1" value="계산하기"  onclick="printValue()"></div>
+    <div><input type="button" id="btn2" value="초기화" onclick="removeValue()"></div>
+</body>
+</html>
