@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>jQuery 요소 추가, 삭제</title>
+
+    <script>
+        function appendJS() {
+            let u1=document.querySelector('ul');
+            let l1=u1.appendChild(document.createElement('li'));
+            l1.innerText = 'red';
+        }
+
+        function appendjQuery() {
+            $('ul').append('<li>jQery append</li>');
+        }
+
+        //perpend(요소 맨 앞에 추가)
+        function preppendJS() {
+            let u1=document.querySelector('ul');
+            let l1=document.createElement('li');
+            l1.innerText = 'pink';
+            u1.prepend(l1);
+        }
+
+        function preppendJQ() {
+            $('ul').prepend('<li>jQuery prepend</li>');
+        }
+
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>orange</li>
+        <li>green</li>
+        <li>navy</li>
+    </ul>
+    <button onclick="appendJS()">append js</button>
+    <button onclick="appendjQuery()">append jQuery</button>
+
+    <button onclick="preppendJS()">append js</button>
+    <button onclick="preppendJQ()">append jQery</button>
+</body>
+</html>

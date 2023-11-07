@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
+        integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        날짜:
+        <input type="text" class="day" value="">
+    </div>
+    <div>
+        내용:
+        <input type="text" class="memo" value="">
+    </div>
+    <div>
+        <input type="button" value="작성" class="press" onclick="clickMemo()">
+    </div>
+    <table style="text-align: center; float:right; width: 800px; height: 800px;" onclick="clickDay()">
+        <tr>
+            <td style="color: red">S</td>
+            <td>M</td>
+            <td>T</td>
+            <td>W</td>
+            <td>T</td>
+            <td>F</td>
+            <td style="color: blue">S</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td id="1">1</td>
+            <td id="2" style="color: blue">2</td>
+        </tr>
+        <tr>
+            <td id="3" style="color: red">3</td>
+            <td id="4">4</td>
+            <td id="5">5</td>
+            <td id="6">6</td>
+            <td id="7">7</td>
+            <td id="8">8</td>
+            <td id="9" style="color: blue">9</td>
+        </tr>
+        <tr>
+            <td id="10" style="color: red">10</td>
+            <td id="11">11</td>
+            <td id="12">12</td>
+            <td id="13">13</td>
+            <td id="14">14</td>
+            <td id="15">15</td>
+            <td id="16" style="color: blue">16</td>
+        </tr>
+        <tr>
+            <td id="17" style="color: red">17</td>
+            <td id="18">18</td>
+            <td id="19">19</td>
+            <td id="20">20</td>
+            <td id="21">21</td>
+            <td id="22">22</td>
+            <td id="23" style="color: blue">23</td>
+        </tr>
+        <tr>
+            <td id="24" style="color: red">24</td>
+            <td id="25">25</td>
+            <td id="26">26</td>
+            <td id="27">27</td>
+            <td id="28">28</td>
+            <td id="29">29</td>
+            <td id="30" style="color: blue">30</td>
+        </tr>
+        <tr>
+            <td id="31" style="color: red">31</td>
+        </tr>
+    </table>
+
+    <script>
+        function clickMemo() {
+            // $("input.press").on("click", function() {
+            let date2 = [];
+            let m1 = $("input.memo").val();
+            let date1 = $("input.day").val();
+            date2 = date1.split("/");
+            date3 = date2[2];
+            $('table').find('#' + date3).append('<p>' + m1 + '</p>');
+        }
+
+        function clickDay() {
+            $("td").on("click", function () {
+                $("input.day").val("2022/7/" + $(this).text());
+            })
+        }
+    </script>
+</body>
