@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media all and (min-width: 300px) {
+            /* 인쇄 & 화면 */
+            .all {
+                font-size: 2rem;
+            }
+        }
+        @media print and (min-width: 300px) {
+            /* 인쇄, 인쇄 미리보기 */
+            .print {
+                font-size: 2rem;
+            }
+        }
+        @media screen and (min-width: 300px) {
+            /* 인쇄를 제외한 모든 */
+            .screen {
+                font-size: 2rem;
+            }
+        }
+
+        /* media 유형을 지정하지 않으면 디폴트로 all*/
+    </style>
+</head>
+<body>
+    <div class="all">all</div>
+    <div class="print">print</div>
+    <div class="screen">screen</div>
+</body>
+</html>

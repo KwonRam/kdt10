@@ -8,6 +8,22 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"
         integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        th,td {
+            vertical-align: top;
+            border: black solid 2px;
+            width: 100px;
+            height: 100px;
+        }
+
+        caption {
+            caption-side: top;
+            text-align: center;
+            font-size: 20pt;
+            font-weight: 600;
+            margin: 5pt;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,8 +38,11 @@
     <div>
         <input type="button" value="작성" class="press" onclick="clickMemo()">
     </div>
-    <table style="text-align: center; float:right; width: 800px; height: 800px; margin: auto;" onclick="clickDay()">
-        <tr>
+    <table
+        style="text-align: center; float: right; border: solid black 2px; border-collapse: collapse;"
+        onclick="clickDay()">
+        <caption>2022</caption>
+        <tr style="background-color: peachpuff;">
             <td style="color: red">S</td>
             <td>M</td>
             <td>T</td>
@@ -79,6 +98,12 @@
         </tr>
         <tr>
             <td id="31" style="color: red">31</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
         </tr>
     </table>
 
@@ -90,7 +115,7 @@
             let date1 = $("input.day").val();
             date2 = date1.split("/");
             date3 = date2[2];
-            $('table').find('#' + date3).append('<p>' + m1 + '</p>');
+            $('table').find('#' + date3).append('<br>'+'<span>' + m1 + '</span>');
         }
 
         function clickDay() {

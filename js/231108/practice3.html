@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        @font-face {
+            font-family: 'Cafe24Moyamoya-Face-v1.0';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/Cafe24Moyamoya-Face-v1.0.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .header {
+            background-color: turquoise;
+            width: 100vw;
+        }
+
+        @media screen and (width <=768px) {
+
+            span {
+                margin: 15px;
+                font-family: 'Cafe24Moyamoya-Face-v1.0';
+                text-shadow: -2px 0px white, 0px 2px white, 2px 0px white, 0px -2px white;
+            }
+
+            div.container {
+                background-color: paleturquoise;
+                width: 100%;
+                padding: 15px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header {
+                height: 60px;
+            }
+
+            div.empty {
+                height: 60px;
+            }
+
+            div>img {
+                width: 75px;
+                height: 60px;
+            }
+
+        }
+
+        @media screen and (768px < width) {
+
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+            span {
+                margin: 25px;
+                font-size: 20px;
+                font-family: 'Cafe24Moyamoya-Face-v1.0';
+                text-shadow: -2px 0px white, 0px 2px white, 2px 0px white, 0px -2px white;
+            }
+
+            div.empty {
+                height: 100px;
+            }
+
+            .header {
+                height: 100px;
+            }
+
+            div>img {
+                width: 110px;
+                height: 80px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="empty">
+            <img class="picture" src="./Snow-House-PNG-Image.png" alt="iglu" />
+        </div>
+        <div class="container">
+            <span>메뉴1</span>
+            <span>메뉴2</span>
+            <span>메뉴3</span>
+            <span>메뉴4</span>
+        </div>
+    </div>
+</body>
+
+</html>
