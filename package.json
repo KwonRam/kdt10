@@ -1,0 +1,19 @@
+{
+  "name": "kdt10",
+  "version": "1.0.0",
+  "description": "kdt 10 lesson 안녕하세요\r 오늘 수업은 12시까지",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "type": "module",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {}
+}
