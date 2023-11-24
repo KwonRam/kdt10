@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>콜백지옥</h1>
+</body>
+
+<script>
+    /*setTimeout(function () {
+        document.body.style.backgroundColor = 'red';
+        setTimeout(function () {
+            document.body.style.backgroundColor = 'orange';
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'yellow';
+                setTimeout(function () {
+                    document.body.style.backgroundColor = 'green';
+                    setTimeout(function () {
+                        document.body.style.backgroundColor = 'blue';
+                    },500)
+                },500)
+            },500)
+        },500)
+    },500)*/
+
+    function red() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'red';
+                resolve('red');
+                
+            }, 500)
+        })
+    }
+    function orange() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'orange';
+                resolve('orange');
+            }, 500)
+        })
+    }
+    function yellow() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'yellow';
+                resolve('yellow');
+            }, 500)
+        })
+    }
+    function green() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'green';
+                resolve('green');
+            }, 500)
+        })
+    }
+    function blue() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'blue';
+                resolve('blue');
+            }, 500)
+        })
+    }
+
+    async function exec() {
+        try {
+            let color1=await red();
+            let color2=await orange();
+            let color3=await yellow();
+            let color4=await green();
+            let color5=await blue();
+
+        } catch(error){
+            console.log(error);
+        }
+    }
+    exec();
+</script>
+
+</html>
