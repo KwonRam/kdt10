@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 전송 결과</title>
+</head>
+<body>
+    <h1><%= title %> 회원가입 성공</h1>
+    <div>
+        <span><%= userInfo.yourName %>님 환영합니다</span>
+    </div>
+    <div>
+        성별은 <span><%= userInfo.gender %></span>입니다.
+    </div>
+    <div>
+        생년월일은 <span><%= userInfo.bDay %></span>입니다.
+    </div>
+    <div>
+        관심사는 <span><%= userInfo.like %></span>입니다.
+    </div>
+    <div>
+        좋아하는 색은 <span style="color: <%= userInfo.color %>;"><%= userInfo.color %></span>입니다.
+    </div>
+    <div>
+        전화번호는 <span><%= userInfo.phone %></span>입니다.
+    </div>
+    <% console.log(title, userInfo) %>
+</body>
+</html>
