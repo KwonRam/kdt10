@@ -7,9 +7,6 @@ app.set('views', './views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const indexRouter = require('./routes/index');
-app.use('/', indexRouter);
-
 const userRouter = require('./routes/bookMain');
 app.use('/bookMain', userRouter); 
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('./controller/CbookDescription');
+const controller = require('../controller/CbookMain');
 
 // localhost:PORT/user 기본 경로
 
