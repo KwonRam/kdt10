@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bookshelf">
+        <div class="bookCard">
+            <div class="bookImage" onclick="bookDescription()">
+                <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg">
+            </div>
+            <div class="bookTilte" onclick="bookDescription()" id="title">
+                <p>해리포터</p>
+            </div>
+            <div class="bookAuthor" onclick="bookDescription()" id="author">
+                <p>J.K.롤링</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    function bookDescription() { //axios로 상세페이지에 연결되게 
+            const data = {
+                title: document.getElementById("title"),
+                authorName: document.getElementById("author")
+            }
+        axios({
+            method: 'get',
+            url: '/bookshelf',
+            data: data
+        }).then((res) => {
+            console.log(res.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+</script>
+
+</html>
