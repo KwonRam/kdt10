@@ -55,15 +55,26 @@
             console.log(form);
         }*/
         const resultBox = document.querySelector('.result');
+        
         function axiosGet() {
             const form = document.forms['register'];
+            console.log(form);
+           // const likes = [];
+            //form.likes.forEach((element) => {
+                //if(elem.checked) {
+                    //likes.push(element.value)
+                //}
+            //});
+            //console.log(likes);
+
+            const likes = Array.from(form.like).filter((elem) => elem.checked === true).map((elem)=> elem.value);
             const data = {
                 name: form.Name.value,
                 gender: form.gender.value,
                 bDay: form.bDay.value,
-                like: form.like.value,
                 color: form.color.value,
-                phone: form.phone.value
+                phone: form.phone.value,
+                like: likes,
             }
 
             axios({

@@ -1,0 +1,1 @@
+const PlayerModel = (sequelize, DataTypes)

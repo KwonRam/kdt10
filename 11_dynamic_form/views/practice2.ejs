@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="register">
+
+        <input type="text" name="ID" id="ID" placeholder="홍길동" autocomplete="off">
+
+        <br>
+
+        <input type="text" name="PW" id="PW" placeholder="홍길동" autocomplete="off">
+
+        <br>
+
+        <button type="button" onclick="clickLogin()">회원가입</button>
+        
+
+    </form>
+    <div class="result"></div>
+
+    <script>
+        const loginResult = document.querySelector('.login_result')
+        function clickLogin() {
+            const form = document.forms['login'];
+            const data = {
+                userId : form.userId.value,
+                userPw: form.userPw.value
+
+            }
+
+            if(!form.userID.checkValidity() || !form.userPw.checkValidity()) {
+                loginResult.textContent = '아이디와 패스워드는 필수'
+            }
+
+            axios({
+                method: 'post',
+                url: '/axios2',
+                data: data
+            }).then((resposne)=>{
+                console.log(response.data);
+                if(resposne.data.isSuccess){
+                    loginResult.textContent = `${resposne.data.userInfo.userId}님 로그인 성공!`;
+                    loginResult.classList.remove('error');
+                    loginResult.classList.add('success');
+                } else {
+                    loginResult.textContent = `아이디 또는 패스워드 오류!`;
+                    loginResult.classList.add('error');
+                    loginResult.classList.remove('success');
+                }
+            })
+        }
+    </script>
+</body>
+</html>

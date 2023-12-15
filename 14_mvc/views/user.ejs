@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>유저 상세 페이지</title>
+</head>
+
+<body>
+    <h1>유저 페이지</h1>
+    <a href="/">홈으로</a>
+    <br>
+    <form name="userRegister">
+        아이디 <input type="text" value="<%= userInfo.realId %>" name="Id" id="Id" placeholder="abdc" ><br>
+        비번 <input type="text" value="<%= userInfo.realPw %>" name="Pw" id="Pw" placeholder="1234"><br>
+        이름 <input type="text" value="<%= userInfo.realName %>" name="Name" id="Name" placeholder="홍길동"><br>
+        나이 <input type="text" value="<%= userInfo.age %>" name="Age" id="Age" placeholder="25"><br>
+
+        <button type="button" onclick="getUserRegister()">회원가입</button>
+    </form>
+        <div class="resultData"></div>
+    <script>
+       /* axios({
+                method: 'get',
+                url: '/axios',
+                params: data
+            }).then((response)=>{
+                console.log(response);
+                console.log(response.data);
+
+                const data = response.data;
+
+                resultBox.textContent=`${data.name} ${data.gender}${data.bDay} ${data.like}`;
+            }).catch((error)=> {
+                console.log('Error!', error);
+            })*/
+        const resultdb = document.querySelector('.resultData');
+        function getUserRegister() {
+            const form = document.forms['userRegister'];
+            const data = {
+                Identify: form.Id.value,
+                Password: form.Pw.value,
+                userRealName: form.Name.value,
+                userRealAge: form.Age.value
+            }
+            axios({
+                method: 'get',
+                url: '/user',
+                params: data
+            }).then((response) => {
+                const {
+                    Identify,
+                    Password,
+                    userRealName,
+                    userRealAge
+                } = response.data;
+                //임시 db 로컬에다 넣기
+                console.log(response.data);
+                resultdb.textContent = `${data.Identify}님의 비밀번호는 ${data.Password}이고 실명은 ${data.userRealName}, 나이는 ${data.userRealAge}입니다`
+                const objString = JSON.stringify(data);
+                window.localStorage.setItem('userDataLocal', objString);
+                console.log(objString);
+            }).catch((error)=> {
+                console.log('Error!', error);
+            })
+        }
+    </script>
+</body>
+
+</html>

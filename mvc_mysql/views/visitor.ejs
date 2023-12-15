@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>방명록</title>
+</head>
+
+<body>
+    <h1>방명록 등록</h1>
+    <a href="/">홈으로</a>
+    <form name="hello">
+        <label for="userName">사용자 이름</label>
+        <input type="text" id="userName" name="userName" required />
+        <label for="helloMessage">방명록</label>
+        <input type="text" id="helloMessage" name="helloMessage" required />
+        <button type="button" onclick="register();">등록</button>
+    </form>
+    <div class="result"></div>
+
+    <script>
+        const result = document.querySelector('.result');
+
+        function register() {
+            const form = document.forms['hello'];
+            console.log(form);
+
+            const data = {
+                userName: form.userName.value,
+                helloMessage: form.helloMessage.value
+            }
+            console.log(data);
+            //   form validation
+            if (!form.userName.checkValidity() || !form.helloMessage.checkValidity()) {
+                result.textContent = '이름과 메세지를 입력해주세요!';
+                return;
+            }
+
+            axios({
+                method: 'get',
+                url: '/visitor',
+                params: data
+            }).then((response) => {
+                console.log(response);
+                console.log(response.params);
+                console.log(response.data);
+                const haha = {
+                    helloMessage,
+                    userName
+                }
+                haha = response.params;
+                result.textContent = `${haha.userName}님 방명록 등록완료`;
+            }).catch((error) => {
+                console.error('에러 발생:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>
