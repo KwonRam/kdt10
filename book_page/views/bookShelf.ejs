@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -11,7 +12,7 @@
     <div class="bookshelf">
         <div class="bookCard">
             <div class="bookImage" onclick="bookDescription()">
-                <img src="https://bukovero.com/wp-content/uploads/2016/07/Harry_Potter_and_the_Cursed_Child_Special_Rehearsal_Edition_Book_Cover.jpg">
+                <img src="https://image.yes24.com/goods/82935976/XL">
             </div>
             <div class="bookTilte" onclick="bookDescription()" id="title">
                 <p>해리포터</p>
@@ -26,13 +27,13 @@
 
     function bookDescription() { //axios로 상세페이지에 연결되게 
             const data = {
-                title: document.getElementById("title"),
-                authorName: document.getElementById("author")
+                title: document.getElementById("title").innerText,
+                authorName: document.getElementById("author").innerText
             }
             console.log(data);
         axios({
             method: 'get',
-            url: '/bookshelf',
+            url: '/bookShelf/<%= bookInfo.isbn %>',
             data: data
         }).then((res) => {
             console.log(res.data);
