@@ -33,7 +33,7 @@
             console.log(data);
         axios({
             method: 'get',
-            url: '/bookShelf/<%= bookInfo.isbn %>',
+            url: '/bookContent/<%= bookInfo.isbn %>',
             data: data
         }).then((res) => {
             console.log(res.data);
