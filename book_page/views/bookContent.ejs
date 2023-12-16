@@ -2,17 +2,21 @@
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>댓글 자세히 보기</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글 자세히 보기</title>
 </head>
 
 <body>
-  <h1><%= bookInfo.title %> 을 클릭하셨습니다</h1>
-  <a href="/bookShelf">책장으로 돌아가기</a>
+    <h1>
+        <%= bookInfo.title %> 을 클릭하셨습니다
+    </h1>
+    <a href="/bookShelf">책장으로 돌아가기</a>
 
-  <p>출판일 : <%= bookInfo.pubDate %></p>
-  <p>출판사 : <%= bookInfo.publisher %></p>
+    <p>출판일 : <%= bookInfo.pubDate %>
+    </p>
+    <p>출판사 : <%= bookInfo.publisher %>
+    </p>
 </body>
 
 </html>

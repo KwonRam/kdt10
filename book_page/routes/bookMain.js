@@ -6,6 +6,6 @@ const controller = require('../controller/CbookMain');
 
 router.get('/', controller.main);
 router.get('/bookShelf', controller.get_bookshelf);
-router.get('/bookContent/:isbn', controller.get_description);
+router.get('/bookContent', controller.get_description);
 
 module.exports = router;

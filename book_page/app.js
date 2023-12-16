@@ -10,8 +10,8 @@ app.use(express.json());
 const indexRouter = require('./routes/bookMain');
 app.use('/', indexRouter); // localhost:PORT/
 
-const bookMainRouter = require('./routes/bookMain');
-app.use('/bookMain', bookMainRouter); 
+const bookShelfRouter = require('./routes/bookMain');
+app.use('/bookShelf', bookShelfRouter); 
 
 // [404 error]
 // 맨 마지막에 라우트로 선언: 위에다 하게 되면 나머지 코드 무시되기 때문에

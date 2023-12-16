@@ -26,17 +26,18 @@
 <script>
 
     function bookDescription() { //axios로 상세페이지에 연결되게 
-            const data = {
-                title: document.getElementById("title").innerText,
-                authorName: document.getElementById("author").innerText
-            }
-            console.log(data);
+        const data = {
+            title: document.getElementById("title").innerText,
+            authorName: document.getElementById("author").innerText
+        }
+        console.log(data);
         axios({
             method: 'get',
-            url: '/bookContent/<%= bookInfo.isbn %>',
-            data: data
+            url: 'bookShelf',
+            params: data
         }).then((res) => {
-            console.log(res.data);
+            console.log(res);
+            window.location.href = 'bookMain/bookContent/<%=data.title%>'
         }).catch((err) => {
             console.log(err);
         })

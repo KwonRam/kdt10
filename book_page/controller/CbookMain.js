@@ -17,11 +17,12 @@ exports.get_bookshelf = (req, res) => {
 // GET /comment/:id
 exports.get_description = (req, res) => {
     // req.query : /comment?id=1
-    console.log(req.params); // { id: '1' } : 라우트 매개변수에 대한 정보가 담겨 있음
+    console.log('get descripytion')
+    console.log(req.query); // { id: '1' } : 라우트 매개변수에 대한 정보가 담겨 있음
     //console.log('id >', req.params.id);
 
     const books = BookMain.bookInfos(); // (model 연결 후 추가)
-    const bookTitle = req.params.title; // 데이터로 받은 책 제목 
+    const bookTitle = req.query.title; // 데이터로 받은 책 제목 
     //const bookAuthor = req.params.authorName; // 데이터로 받은 책 작가
 
     for(i=0; i < books.length ;i++){
