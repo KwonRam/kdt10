@@ -12,13 +12,13 @@
     <div class="bookshelf">
         <div class="bookCard">
             <div class="bookImage" onclick="bookDescription()">
-                <img src="https://image.yes24.com/goods/82935976/XL">
+                <img src="http://image.aladin.co.kr/product/3226/50/coversum/8984317470_3.jpg">
             </div>
             <div class="bookTilte" onclick="bookDescription()" id="title">
-                <p>해리포터</p>
+                <p>높고 푸른 사다리</p>
             </div>
             <div class="bookAuthor" onclick="bookDescription()" id="author">
-                <p>J.K.롤링</p>
+                <p>공지영</p>
             </div>
         </div>
     </div>
@@ -30,14 +30,17 @@
             title: document.getElementById("title").innerText,
             authorName: document.getElementById("author").innerText
         }
-        console.log(data);
+        //console.log(data);
         axios({
             method: 'get',
             url: 'bookShelf',
             params: data
         }).then((res) => {
-            console.log(res);
-            window.location.href = 'bookMain/bookContent/<%=data.title%>'
+            //console.log(res);
+            //console.log(data);
+            //console.log(data.title);
+            window.location.href = 'bookContent';
+            
         }).catch((err) => {
             console.log(err);
         })
