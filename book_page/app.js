@@ -7,11 +7,12 @@ app.set('views', './views');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // [라우터 분리]
-const indexRouter = require('./routes/bookMain');
-app.use('/', indexRouter); // localhost:PORT/
 
 const bookShelfRouter = require('./routes/bookMain');
-app.use('/bookShelf', bookShelfRouter); 
+app.use('/bookShelf', bookShelfRouter);
+
+const bookContentRouter = require('./routes/bookContent');
+app.use('/', bookContentRouter); 
 
 // [404 error]
 // 맨 마지막에 라우트로 선언: 위에다 하게 되면 나머지 코드 무시되기 때문에

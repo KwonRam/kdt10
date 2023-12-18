@@ -33,14 +33,11 @@
         //console.log(data);
         axios({
             method: 'get',
-            url: 'bookShelf',
+            url: 'bookShelf/test',
             params: data
         }).then((res) => {
-            //console.log(res);
-            //console.log(data);
-            //console.log(data.title);
-            window.location.href = 'bookContent';
-            
+            console.log('ejs 레스 ', res.data);
+            window.location.href = `bookContent/${res.data.bookInfo.title}`;
         }).catch((err) => {
             console.log(err);
         })
