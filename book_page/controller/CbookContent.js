@@ -6,15 +6,19 @@ exports.main = (req, res) => {
 
 exports.book_content = (req, res) => {
     console.log('북컨텐트')
-    console.log(req.query); // { id: '1' }
-    //console.log(req.query.id);
-    BookMain.getBookInfo(req.query.id, (result)=> {
+    console.log('북컨텐트 ', req.query);
+    console.log('북컨텐트 ',req.query.title);
+    BookMain.getBookInfo(req.query.title, (result)=> {
         console.log('CbookContent.js > ', result);
         res.send(result);
     })
 }
 
 exports.book_content_detail = (req, res) => {
-    bookContent.for
-    res.render('bookContent', {})
+    console.log('북컨텐트 디테일')
+    console.log('북컨텐트 디테일 ', req.params);
+    console.log('북컨텐트 디테일 ', req.params.title);
+    BookMain.getBookInfo(req.params.title, (result) => {
+        res.send(result);
+    })
 }

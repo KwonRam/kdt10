@@ -97,3 +97,13 @@ exports.bookInfos = () => {
         }
     ]
 }
+
+exports.getBookInfo = (data, cb) => {
+    const books = bookInfos();
+    //const individualBook = [data.title, data.author];
+    for(i=0; i < books.length ; i++ ){
+        if(books[i].title == data.title){
+            cb(books[i]);
+        }
+    }
+}
