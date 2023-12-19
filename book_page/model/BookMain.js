@@ -98,12 +98,19 @@ exports.bookInfos = () => {
     ]
 }
 
-exports.getBookInfo = (data, cb) => {
-    const books = bookInfos();
+exports.getBookInfo = (bookInfos, data, cb) => {
+    const books = bookInfos;
+    //console.log('겟 북 인포 ', books);
     //const individualBook = [data.title, data.author];
-    for(i=0; i < books.length ; i++ ){
-        if(books[i].title == data.title){
+    console.log('북스의 타입 ', typeof(books));
+    console.log('북스 ', books);
+    console.log('북스 ', books[0]);
+    console.log('북스 렝스 ', books.length);
+    console.log('데이타 ', data);
+    for(i=0; i < books.length ; i++){
+        if(books[i].title == data){
             cb(books[i]);
+            console.log('검색 결과 ', books[i]);
         }
     }
 }

@@ -7,5 +7,6 @@ const controller = require('../controller/CbookMain');
 // router.get('/', controller.main);
 router.get('/', controller.get_bookshelf);
 router.get('/test', controller.get_description);
+router.get('/detail', controller.load_detail);
 
 module.exports = router;

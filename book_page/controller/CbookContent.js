@@ -5,20 +5,34 @@ exports.main = (req, res) => {
 }
 
 exports.book_content = (req, res) => {
-    console.log('북컨텐트')
-    console.log('북컨텐트 ', req.query);
-    console.log('북컨텐트 ',req.query.title);
-    BookMain.getBookInfo(req.query.title, (result)=> {
-        console.log('CbookContent.js > ', result);
-        res.send(result);
-    })
+    res.render('bookContent');
 }
 
-exports.book_content_detail = (req, res) => {
+exports.book_content_detail = async (req, res) => {
     console.log('북컨텐트 디테일')
     console.log('북컨텐트 디테일 ', req.params);
     console.log('북컨텐트 디테일 ', req.params.title);
-    BookMain.getBookInfo(req.params.title, (result) => {
-        res.send(result);
-    })
+    // try {
+    //     const title = req.params.title;
+    //     BookMain.getBookInfo(BookMain.bookInfos(), title, (result) => {
+    //         // res.send(result);
+    //         res.render('test', {title: result.title})
+    //     })
+    // }
+    // catch (error) {
+    //     console.error(error);
+    //     res.status(500).send('Internal Server Error');
+    // }
+
+    try {
+        const title = req.body.title;
+        BookMain.getBookInfo(BookMain.bookInfos(), title, (result) => {
+            // res.send(result);
+            res.render('test', {title: result.title})
+        })
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
 }

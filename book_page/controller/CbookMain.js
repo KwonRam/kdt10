@@ -1,4 +1,6 @@
 const BookMain = require('../model/BookMain');
+const axios = require('axios');
+const xml2js = require('xml2js');
 
 exports.get_bookshelf = (req, res) => {
     res.render('bookShelf');
@@ -9,23 +11,38 @@ exports.get_bookshelf = (req, res) => {
     res.render('book');
 }*/
 
-// GET /comment/:id
-exports.get_description = (req, res) => {
-    // req.query : /comment?id=1
-    //res.render('bookShelf');
+exports.get_description = async (req, res) => {
+    //res.render('bookShelf/test');
     console.log('get descripytion')
-    console.log('리퀘스트 ', req);
-    console.log('리스폰스 ', res);
-    console.log('쿼리 ', req.query);
-    console.log('파람s ', req.params);
+    //console.log('리퀘스트 ', req);
+    const bookTitle = req.query.title; // 데이터로 받은 책 제목
 
-    const books = BookMain.bookInfos(); // (model 연결 후 추가)
-    const bookTitle = req.query.title; // 데이터로 받은 책 제목 
-    //const bookAuthor = req.params.authorName; // 데이터로 받은 책 작가
+    try {
+        const response = await axios.get('https://www.aladin.co.kr/ttb/api/ItemSearch.aspx', {
+            params: {
+                ttbkey: 'ttbwonluvv0940001',
+                Query: bookTitle,
+                version: '20131101',
+                SearchTarget: 'Book',
+                MaxResults: '5',
+                Output: 'JS',
+                Cover: 'Big',
+            },
+        });
+        console.log('response > ', response.data.item);
+        const items = response.data.item;
+        res.json(items);
 
-    for(i=0; i < books.length ;i++){
-        if(books[i].title.includes(bookTitle)) {
-            res.send({ bookInfo: books[i]});
-        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
     }
+
 };
+
+exports.load_detail = (req, res) => {
+    console.log('load detail이 받은 요청 쿼리 ', req.query);
+    // 요청 시 컨트롤러에서 모델에 필요한 값을 넘겨줘야 함
+    // Visitor.postVisitor( view에서 받아온 데이터, 콜백 함수 ) 호출
+    res.render('detail');
+}
