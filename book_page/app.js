@@ -12,9 +12,6 @@ app.use(express.json());
 const bookShelfRouter = require('./routes/bookMain');
 app.use('/bookShelf', bookShelfRouter);
 
-const bookContentRouter = require('./routes/bookContent');
-app.use('/', bookContentRouter); 
-
 // [404 error]
 // 맨 마지막에 라우트로 선언: 위에다 하게 되면 나머지 코드 무시되기 때문에
 app.get('*', (req, res) => {

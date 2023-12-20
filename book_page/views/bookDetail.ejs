@@ -8,9 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
+<style>
+
+</style>
 
 <body>
-    <a href="/">책장으로 이동</a>
+    <a href="/bookShelf">책장으로 이동</a>
     <p>북 디테일</p>
     <div class="bookshelf">
         <div class="bookCard" id="bookResult">
@@ -23,7 +26,7 @@
     const resultBox = document.getElementById('bookResult');
     const html = `
         <div class="bookImage" id="bookCover">
-                <img src="${urlParams.get('cover')}">
+                <img src="${urlParams.get('cover')}" id="bookCoverImg">
             </div>
             <div class="bookTilte" id="title">
                 <p>지은이 ${urlParams.get('title')}</p>
@@ -42,6 +45,18 @@
             </div>
     `
     resultBox.insertAdjacentHTML('beforeend', html);
+
+    //스타일시트가 왜 적용이 안돼지.. html이 나중에 들어와서 그런거같은데
+    //스타일시트를 페이지 로딩 후에 적용시킬 방법을 찾아야함
+    //뭘 해야하지 일단 CSS 완성
+    //댓글기능까지
+    //또뭐해야함
+    //또...
+    //아 뭐가이렇게힘들어 시발~
+    //전자책 연동 되는지 찾아보고(존나어려움 하지말아야지)
+    //안되겠으면빠른포기
+    //로고
+    //몇명이 완독했어요 비주얼라이즈 
 
 </script>
 
