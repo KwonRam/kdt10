@@ -11,6 +11,8 @@ exports.get_bookshelf = (req, res) => {
     res.render('book');
 }*/
 
+
+
 exports.get_description = async (req, res) => {
     //res.render('bookShelf/test');
     console.log('get descripytion')
@@ -42,7 +44,5 @@ exports.get_description = async (req, res) => {
 
 exports.load_detail = (req, res) => {
     console.log('load detail이 받은 요청 쿼리 ', req.query);
-    // 요청 시 컨트롤러에서 모델에 필요한 값을 넘겨줘야 함
-    // Visitor.postVisitor( view에서 받아온 데이터, 콜백 함수 ) 호출
     res.render('detail');
 }
