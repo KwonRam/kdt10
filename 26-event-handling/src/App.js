@@ -1,10 +1,10 @@
 import './App.css';
-import ChangeTextColor from './SyntheticEvent';
+import Practice2 from './Practice2';
 
 function App() {
   return (
     <div className="App">
-      <ChangeTextColor />
+      <Practice2 />
     </div>
   );
 }
