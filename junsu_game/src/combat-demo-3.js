@@ -207,7 +207,7 @@ function CombatDemo3() {
     resultSpeed: [
       {
         id: 0,
-        charName: '',
+        charName: 'Buffer',
         speed: 0,
       },
     ],
@@ -228,6 +228,11 @@ function CombatDemo3() {
       speed: item.speed + item.speed * Math.random() * 0.4, //속도판정공식
     }));
     const resultSpeedTemp = speedCheck.sort((a, b) => b.speed - a.speed);
+    resultSpeedTemp.push({
+      id: 0,
+      charName: 'Buffer',
+      speed: 0,
+    });
     console.log('리절트 스피드 임시', resultSpeedTemp);
     const turnInformationTemp = {
       turnNumber: currentTurn + 1,
@@ -536,7 +541,12 @@ function CombatDemo3() {
                   ? '2px solid red'
                   : '2px solid transparent',
             }}
-            onClick={() => loadCheckSpeed()}
+            onClick={() =>
+              turnInformation.resultSpeed[0].charName === 'Buffer' ||
+              turnInformation.turnNumber === 0
+                ? loadCheckSpeed()
+                : undefined
+            }
           >
             전투 시작-클릭시 "{turnInformation.turnNumber + 1}"턴의 속도 판정
           </div>
@@ -549,7 +559,16 @@ function CombatDemo3() {
             턴 순서 결과:
             <div id="speedResultBox">
               {turnInformation.resultSpeed.map((i) => {
-                return <div key={i.id}>{i.charName}</div>;
+                return (
+                  <div
+                    key={i.id}
+                    style={{
+                      display: i.charName === 'Buffer' ? 'none' : 'block',
+                    }}
+                  >
+                    {i.charName}
+                  </div>
+                );
               })}
             </div>
           </div>
@@ -568,7 +587,11 @@ function CombatDemo3() {
           <p>스킬</p>
           <div
             style={{
-              display: characterStatDetail.id === 0 ? 'none' : 'block',
+              display:
+                characterStatDetail.charName ===
+                turnInformation.resultSpeed[0].charName
+                  ? 'block'
+                  : 'none',
             }}
           >
             <button
@@ -609,7 +632,7 @@ function CombatDemo3() {
                     <div
                       style={{
                         border:
-                          selectedCharacterId === item.id
+                          turnInformation.resultSpeed[0].id === item.id
                             ? '2px solid red'
                             : '2px solid transparent',
                       }}
@@ -618,22 +641,7 @@ function CombatDemo3() {
                         src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
                         style={{ width: '120px', position: 'relative' }}
                         alt={`${item.img}`}
-                        onClick={
-                          () =>
-                            turnInformation.resultSpeed[0].id === item.id
-                              ? onShowStatDetail(item.id)
-                              : undefined
-                          /*() => onShowStatDetail(item.id)*/
-                        }
-                      ></img>
-                      <img
-                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                        style={{
-                          width: '120px',
-                          display: 'none',
-                          position: 'relative',
-                        }}
-                        alt={`${item.img}`}
+                        onClick={() => onShowStatDetail(item.id)}
                       ></img>
                     </div>
                     <div>
@@ -666,7 +674,7 @@ function CombatDemo3() {
                     <div
                       style={{
                         border:
-                          selectedCharacterId === item.id
+                          turnInformation.resultSpeed[0].id === item.id
                             ? '2px solid red'
                             : '2px solid transparent',
                       }}
@@ -675,22 +683,7 @@ function CombatDemo3() {
                         src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
                         style={{ width: '120px', position: 'relative' }}
                         alt={`${item.img}`}
-                        onClick={
-                          () =>
-                            turnInformation.resultSpeed[0].id === item.id
-                              ? onShowStatDetail(item.id)
-                              : undefined
-                          /*() => onShowStatDetail(item.id)*/
-                        }
-                      ></img>
-                      <img
-                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                        style={{
-                          width: '120px',
-                          display: 'none',
-                          position: 'relative',
-                        }}
-                        alt={`${item.img}`}
+                        onClick={() => onShowStatDetail(item.id)}
                       ></img>
                     </div>
                     <div>
@@ -723,7 +716,7 @@ function CombatDemo3() {
                     <div
                       style={{
                         border:
-                          selectedCharacterId === item.id
+                          turnInformation.resultSpeed[0].id === item.id
                             ? '2px solid red'
                             : '2px solid transparent',
                       }}
@@ -732,22 +725,7 @@ function CombatDemo3() {
                         src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
                         style={{ width: '120px', position: 'relative' }}
                         alt={`${item.img}`}
-                        onClick={
-                          () =>
-                            turnInformation.resultSpeed[0].id === item.id
-                              ? onShowStatDetail(item.id)
-                              : undefined
-                          /*() => onShowStatDetail(item.id)*/
-                        }
-                      ></img>
-                      <img
-                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                        style={{
-                          width: '120px',
-                          display: 'none',
-                          position: 'relative',
-                        }}
-                        alt={`${item.img}`}
+                        onClick={() => onShowStatDetail(item.id)}
                       ></img>
                     </div>
                     <div>
