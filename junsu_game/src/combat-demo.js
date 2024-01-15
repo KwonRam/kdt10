@@ -417,7 +417,14 @@ function CombatDemo() {
     console.log('스피드 렌더링 좀 다시 해줘...', resultSpeed);
   }, [resultSpeed]);
 
+  //턴 정보
   const [turnNumber, setTurnNumber] = useState(1);
+
+  //턴 세부 정보
+  const [turnInformation, setTrunInformation] = useState({
+    turnNumber: turnNumber,
+    resultSpeed: resultSpeed,
+  });
 
   useEffect(() => {
     console.log('턴 렌더링 좀 다시 해줘...', turnNumber);

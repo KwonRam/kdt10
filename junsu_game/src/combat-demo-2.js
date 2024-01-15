@@ -440,7 +440,6 @@ function CombatDemo2() {
 
   const [skillButtons, setSkillButtons] = useState(<div></div>);
 
- 
   const [selectedSkill, setSelectedSkill] = useState('');
   const handleSkillSelect = (skill) => {
     setSelectedSkill(skill);
@@ -477,8 +476,8 @@ function CombatDemo2() {
       HPCheckEnemy = HPCheckEnemy + item.HPcurrent;
     });
     console.log('적군 조회 HP', HPCheckEnemy);
-    }
   };
+
   return (
     <div
       style={{
@@ -501,9 +500,8 @@ function CombatDemo2() {
       <div className="InfoBox">
         <div>
           턴<p>규칙: 턴 내의 순서는 속도판정</p>
-          <div onClick={() => runCombat()}>
-            전투 시작-클릭시 첫 턴의 속도 판정
-          </div>
+          {/*<div onClick={() => runCombat()}>
+            전투 시작-클릭시 첫 턴의 속도 판정</div>*/}
           <div>{turnNumber}번째 턴</div>
           <div>
             턴 순서 결과:
@@ -526,8 +524,8 @@ function CombatDemo2() {
           <div>민첩 {characterStatDetail.speed}</div>
           <div>명중 {characterStatDetail.accuracy}</div>
         </div>
-        <div id="putSkillButton">스킬 {skillButtons}</div>
-        <div>{selectedSkill}을 선택하였습니다</div>
+        {/*<div id="putSkillButton">스킬 {skillButtons}</div>
+        <div>{selectedSkill}을 선택하였습니다</div>*/}
       </div>
       <table
         className="TeamTable"
@@ -638,5 +636,4 @@ function CombatDemo2() {
     </div>
   );
 }
-
 export default CombatDemo2;
