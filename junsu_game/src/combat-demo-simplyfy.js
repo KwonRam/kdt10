@@ -161,7 +161,7 @@ function DamageCalculateDemo() {
 
       if (critical) {
         // 크리티컬 데미지 적용
-        damage *= 1.5; // 예시로 크리티컬일 때 데미지를 2배로 증가시킴
+        damage *= selectedCharacter.critDamageRate; // 예시로 크리티컬일 때 데미지를 2배로 증가시킴
         console.log('critical');
       }
 

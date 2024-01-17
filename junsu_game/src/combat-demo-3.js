@@ -939,15 +939,15 @@ function CombatDemo3() {
           <div>
             HP {characterStatDetail.HPcurrent}/{characterStatDetail.HPstat}
           </div>
-          <div>데미지 유형 {selectedCharacter.isMagic ? '마법' : '물리'}</div>
+          <div>데미지 유형 {characterStatDetail.isMagic ? '마법' : '물리'}</div>
           <div>물리방어 {characterStatDetail.physicResist}</div>
           <div>마법방어 {characterStatDetail.magicResist}</div>
           <div>공격력 {characterStatDetail.attack}</div>
           <div>속도 {characterStatDetail.speed}</div>
           <div>명중 {characterStatDetail.accuracy}</div>
           <div>회피 {characterStatDetail.evasion}</div>
-          <div>크리티컬 {characterStatDetail.critical}</div>
-          <div>크리티컬 {characterStatDetail.critDamageRate}</div>
+          <div>크리티컬 확률 {characterStatDetail.critical}</div>
+          <div>크리티컬 데미지 {characterStatDetail.critDamageRate}</div>
           <p>스킬</p>
           <div
             style={{

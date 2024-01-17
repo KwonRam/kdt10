@@ -5,7 +5,7 @@ import CombatDemo3 from './combat-demo-3';
 import DamageCalculateDemo from './combat-demo-simplyfy';
 
 function App() {
-  return <DamageCalculateDemo />;
+  return <CombatDemo />;
 }
 
 export default App;
