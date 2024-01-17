@@ -19,12 +19,35 @@ function CombatDemo3() {
       attack: 2,
       speed: 4,
       accuracy: 3,
+      evasion: 2,
+      critical: 1,
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
       passiveSkill: '바람의 힘으로!',
-      activeSkill: '최고의 응원!',
+      activeSkillFirst: '최고의 응원!',
+      activeSkillSecond: '한 번 더 너에게',
       ultSkill: '우리는 하나야!',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'back',
       Position: 'center',
@@ -40,12 +63,35 @@ function CombatDemo3() {
       attack: 5,
       speed: 2,
       accuracy: 4,
+      evasion: 2,
+      critical: 1,
       isMagic: true,
       isAdjutant: false,
       isEnemy: false,
       passiveSkill: '젊은 멘토',
-      activeSkill: '타임아웃',
+      activeSkillFirst: '타임아웃',
+      activeSkillSecond: '멤버 교체',
       ultSkill: '끝난 줄 알았지?',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'back',
       Position: 'left',
@@ -61,12 +107,35 @@ function CombatDemo3() {
       attack: 5,
       speed: 5,
       accuracy: 5,
+      evasion: 2,
+      critical: 1,
       isMagic: true,
       isAdjutant: true,
       isEnemy: false,
-      passiveSkill: '최고의 전략가',
-      activeSkill: '내만 믿어라',
+      passiveSkill: '플레이 메이커',
+      activeSkillFirst: '내만 믿어라',
+      activeSkillSecond: '직접 할 차례다',
       ultSkill: '최연소 퇴물이라고?',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'back',
       Position: 'right',
@@ -82,12 +151,35 @@ function CombatDemo3() {
       attack: 5,
       speed: 4,
       accuracy: 5,
+      evasion: 2,
+      critical: 1,
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
       passiveSkill: '넘어설 벽',
-      activeSkill: '찢어버리기',
+      activeSkillFirst: '찢어버리기',
+      activeSkillSecond: '동기부여가 잘 돼',
       ultSkill: '이기게 해준다고!',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'mid',
       Position: 'right',
@@ -103,12 +195,35 @@ function CombatDemo3() {
       attack: 4,
       speed: 3,
       accuracy: 4,
+      evasion: 2,
+      critical: 1,
       isMagic: true,
       isAdjutant: false,
       isEnemy: false,
       passiveSkill: '드래곤의 피지컬',
-      activeSkill: '드래곤 스매셔',
+      activeSkillFirst: '드래곤 스매셔',
+      activeSkillSecond: '하늘을 향해',
       ultSkill: '거짓말쟁이가 아니야',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'mid',
       Position: 'center',
@@ -124,12 +239,35 @@ function CombatDemo3() {
       attack: 3,
       speed: 4,
       accuracy: 5,
+      evasion: 2,
+      critical: 1,
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
-      passiveSkill: '우수한 신체',
-      activeSkill: '최고의 디펜더',
+      passiveSkill: '늑대정신',
+      activeSkillFirst: '최고의 디펜더',
+      activeSkillSecond: '살아남을 거야',
       ultSkill: '사기(士氣) 진작(振作)',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 10,
       Line: 'front',
       Position: 'center',
@@ -147,12 +285,35 @@ function CombatDemo3() {
       attack: 4,
       speed: 4,
       accuracy: 3,
+      evasion: 2,
+      critical: 1,
       isMagic: false,
       isAdjutant: false,
       isEnemy: true,
       passiveSkill: '오염의 근원',
-      activeSkill: '어딜 가려고?',
+      activeSkillFirst: '어딜 가려고?',
+      activeSkillSecond: '내가 동경한 사람은',
       ultSkill: '누가 계속 영웅하래!',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
       lovePointCurrent: 0,
       Line: 'mid',
       Position: 'center',
@@ -178,12 +339,35 @@ function CombatDemo3() {
     attack: 0,
     speed: 0,
     accuracy: 0,
+    evasion: 0,
+    critical: 0,
     isMagic: false,
     isAdjutant: false,
     isEnemy: false,
     passiveSkill: '',
-    activeSkill: '',
+    activeSkillFirst: '',
+    activeSkillSecond: '',
     ultSkill: '',
+    buff: [
+      {
+        buffNumber: 0,
+        buffType: '',
+        buffFrom: '',
+        buffStat: '',
+        buffAmmount: 0,
+        buffDuration: 0,
+      },
+    ],
+    debuff: [
+      {
+        debuffNumber: 0,
+        debuffType: '',
+        debuffFrom: '',
+        debuffStat: '',
+        debuffAmmount: 0,
+        debuffDuration: 0,
+      },
+    ],
     lovePointCurrent: 0,
     Line: '',
     Position: '',
@@ -212,6 +396,8 @@ function CombatDemo3() {
       },
     ],
   });
+
+  const [alreadyAct, setAlreadyAct] = useState([]);
 
   /*useEffect(() => {
     console.log('턴 렌더링 좀 다시 해줘...', turnInformation);
@@ -244,47 +430,192 @@ function CombatDemo3() {
     setTrunInformation(runCheckSpeed());
   };
 
+  //버프디버프
+
+  const buffDebuffCheckOur = (myDeckDataTemp, currentCharacter) => {
+    //버프 체크 아군
+    myDeckDataTemp.forEach((item) => {
+      item.buff.forEach((i) => {
+        if (i.buffDuration > 0 && item.id === currentCharacter.id) {
+          i.buffDuration--;
+          console.log('buffDuration ', i.buffDuration);
+        } else if (i.buffDuration === 0 && item.id === currentCharacter.id) {
+          if (i.buffStat === 'attack') {
+            item.attack = item.attack - i.buffAmmount;
+          } else if (i.buffStat === 'physicResist') {
+            item.physicResist = item.physicResist - i.buffAmmount;
+          } else if (i.buffStat === 'magicResist') {
+            item.magicResist = item.magicResist - i.buffAmmount;
+          } else if (i.buffStat === 'speed') {
+            item.speed = item.speed - i.buffAmmount;
+          } else if (i.buffStat === 'accuracy') {
+            item.accuracy = item.accuracy - i.buffAmmount;
+          } else {
+            console.log('error');
+          }
+        }
+      });
+    });
+    //디버프 체크 아군
+    myDeckDataTemp.forEach((item) => {
+      item.debuff.forEach((i) => {
+        if (i.debuffDuration > 0 && item.id === currentCharacter.id) {
+          i.debuffDuration--;
+          console.log('debuffDuration ', i.debuffDuration);
+        } else if (i.debuffDuration === 0 && item.id === currentCharacter.id) {
+          if (i.debuffStat === 'attack') {
+            item.attack = item.attack - i.debuffAmmount;
+          } else if (i.debuffStat === 'physicResist') {
+            item.physicResist = item.physicResist - i.debuffAmmount;
+          } else if (i.debuffStat === 'magicResist') {
+            item.magicResist = item.magicResist - i.debuffAmmount;
+          } else if (i.debuffStat === 'speed') {
+            item.speed = item.speed - i.debuffAmmount;
+          } else if (i.debuffStat === 'accuracy') {
+            item.accuracy = item.accuracy - i.debuffAmmount;
+          } else if (i.debuffStat === 'bleed') {
+            item.HPcurrent = item.HPcurrent - i.debuffAmmount;
+          } else if (i.debuffStat === 'poison') {
+            item.HPcurrent = item.HPcurrent - i.debuffAmmount;
+          } else {
+            console.log('error');
+          }
+        }
+      });
+    });
+
+    return myDeckDataTemp;
+  };
+  const buffDebuffCheckEnemy = (enemyDeckDataTemp, currentCharacter) => {
+    //버프 체크 적군
+    enemyDeckDataTemp.forEach((item) => {
+      item.buff.forEach((i) => {
+        if (i.buffDuration > 0 && item.id === currentCharacter.id) {
+          i.buffDuration--;
+          console.log('buffDuration ', i.buffDuration);
+        } else if (i.buffDuration === 0 && item.id === currentCharacter.id) {
+          if (i.buffStat === 'attack') {
+            item.attack = item.attack - i.buffAmmount;
+          } else if (i.buffStat === 'physicResist') {
+            item.physicResist = item.physicResist - i.buffAmmount;
+          } else if (i.buffStat === 'magicResist') {
+            item.magicResist = item.magicResist - i.buffAmmount;
+          } else if (i.buffStat === 'speed') {
+            item.speed = item.speed - i.buffAmmount;
+          } else if (i.buffStat === 'accuracy') {
+            item.accuracy = item.accuracy - i.buffAmmount;
+          } else {
+            console.log('error');
+          }
+        }
+      });
+    });
+    //디버프 체크 적군
+    enemyDeckDataTemp.forEach((item) => {
+      item.debuff.forEach((i) => {
+        if (i.debuffDuration > 0 && item.id === currentCharacter.id) {
+          i.debuffDuration--;
+          console.log('debuffDuration ', i.debuffDuration);
+        } else if (i.debuffDuration === 0 && item.id === currentCharacter.id) {
+          if (i.debuffStat === 'attack') {
+            item.attack = item.attack - i.debuffAmmount;
+          } else if (i.debuffStat === 'physicResist') {
+            item.physicResist = item.physicResist - i.debuffAmmount;
+          } else if (i.debuffStat === 'magicResist') {
+            item.magicResist = item.magicResist - i.debuffAmmount;
+          } else if (i.debuffStat === 'speed') {
+            item.speed = item.speed - i.debuffAmmount;
+          } else if (i.debuffStat === 'accuracy') {
+            item.accuracy = item.accuracy - i.debuffAmmount;
+          } else if (i.debuffStat === 'bleed') {
+            item.HPcurrent = item.HPcurrent - i.debuffAmmount;
+          } else if (i.debuffStat === 'poison') {
+            item.HPcurrent = item.HPcurrent - i.debuffAmmount;
+          } else {
+            console.log('error');
+          }
+        }
+      });
+    });
+
+    return enemyDeckDataTemp;
+  };
+
   const handleSkillSelect = (e, selectedSkill) => {
-    let currentCharacter = {
-      id: 0,
-      charName: '',
-      HPcurrent: 0,
-      HPstat: 0,
-      physicResist: 0,
-      magicResist: 0,
-      attack: 0,
-      speed: 0,
-      accuracy: 3,
-      isMagic: false,
-      isAdjutant: false,
-      isEnemy: false,
-      passiveSkill: '',
-      activeSkill: '',
-      ultSkill: '',
-      lovePointCurrent: 0,
-      Line: '',
-      Position: '',
-      img: '',
-    };
+    let currentCharacter,
+      currentCharacterReset = {
+        id: 0,
+        charName: '',
+        HPcurrent: 0,
+        HPstat: 0,
+        physicResist: 0,
+        magicResist: 0,
+        attack: 0,
+        speed: 0,
+        accuracy: 0,
+        evasion: 0,
+        critical: 0,
+        isMagic: false,
+        isAdjutant: false,
+        isEnemy: false,
+        passiveSkill: '',
+        activeSkillFirst: '',
+        activeSkillSecond: '',
+        ultSkill: '',
+        buff: [
+          {
+            buffNumber: 0,
+            buffType: '',
+            buffFrom: '',
+            buffStat: '',
+            buffAmmount: 0,
+            buffDuration: 0,
+          },
+        ],
+        debuff: [
+          {
+            debuffNumber: 0,
+            debuffType: '',
+            debuffFrom: '',
+            debuffStat: '',
+            debuffAmmount: 0,
+            debuffDuration: 0,
+          },
+        ],
+        lovePointCurrent: 0,
+        Line: '',
+        Position: '',
+        img: '',
+      };
     console.log(e);
     console.log(e.target.value);
     currentCharacter = characterStatDetail;
     console.log(currentCharacter);
     switch (selectedSkill) {
-      case 'A':
+      case 'A1':
         console.log(
-          `${currentCharacter.charName} uses ${currentCharacter.activeSkill}!`
+          `${currentCharacter.charName} uses ${currentCharacter.activeSkillFirst}!`
         );
         // 해당 스킬에 대한 행동 로직 추가
         //run choosedChar[0].activeSkill
-        const myDeckDataTemp = myDeckData;
-        const enemyDeckDataTemp = enemyDeckData;
+        let myDeckDataTempA1 = myDeckData;
+        let enemyDeckDataTempA1 = enemyDeckData;
         if (currentCharacter.charName === '정희찬') {
-          myDeckDataTemp.map((item) => {
-            item.attack += 3;
+          myDeckDataTempA1.forEach((item) => {
+            item.buff.push({
+              buffNumber: item.buff.length,
+              buffType: 'attackBuffHeeChan',
+              buffFrom: '정희찬',
+              buffStat: 'attack',
+              buffAmmount: 4,
+              buffDuration: 4,
+            });
+          });
+          myDeckDataTempA1.forEach((item) => {
+            item.attack += 4;
           });
         } else if (currentCharacter.charName === '이현성') {
-          myDeckDataTemp.map((item) => {
+          myDeckDataTempA1.forEach((item) => {
             if (item.HPcurrent + 5 > item.HPstat) {
               item.HPcurrent = item.HPstat;
             } else {
@@ -292,204 +623,224 @@ function CombatDemo3() {
             }
           });
         } else if (currentCharacter.charName === '공태성') {
-          enemyDeckDataTemp.map((item) => {
+          enemyDeckDataTempA1.forEach((item) => {
             item.HPcurrent -= 15;
           });
         } else if (currentCharacter.charName === '최종수') {
-          enemyDeckDataTemp.map((item) => {
+          enemyDeckDataTempA1.forEach((item) => {
             item.physicResist -= 2;
             item.HPcurrent -= 10;
           });
         } else if (currentCharacter.charName === '진재유') {
-          enemyDeckDataTemp.map((item) => {
+          enemyDeckDataTempA1.forEach((item) => {
             item.magicResist -= 3;
             item.HPcurrent -= 12;
           });
         } else if (currentCharacter.charName === '전영중') {
-          myDeckDataTemp.map((item) => {
+          myDeckDataTempA1.forEach((item) => {
             item.physicResist += 3;
           });
-          enemyDeckDataTemp.map((item) => {
+          enemyDeckDataTempA1.forEach((item) => {
             item.physicResist -= 3;
           });
         } else {
           console.log('error');
         }
-        setMyDeckData(myDeckDataTemp);
-        setEnemyDeckData(enemyDeckDataTemp);
-        setCharacterStatDetail({
-          id: 0,
-          charName: '',
-          HPcurrent: 0,
-          HPstat: 0,
-          physicResist: 0,
-          magicResist: 0,
-          attack: 0,
-          speed: 0,
-          accuracy: 0,
-          isMagic: false,
-          isAdjutant: false,
-          isEnemy: false,
-          passiveSkill: '',
-          activeSkill: '',
-          ultSkill: '',
-          lovePointCurrent: 0,
-          Line: '',
-          Position: '',
-          img: '',
-        });
-        turnInformation.resultSpeed.shift();
+        //버프디버프 체크 아군
+        myDeckDataTempA1 = buffDebuffCheckOur(
+          myDeckDataTempA1,
+          currentCharacter
+        );
+        //버프디버프 체크 적군
+        enemyDeckDataTempA1 = buffDebuffCheckEnemy(
+          enemyDeckDataTempA1,
+          currentCharacter
+        );
+        //set
+        setMyDeckData(myDeckDataTempA1);
+        setEnemyDeckData(enemyDeckDataTempA1);
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행동한 아군 빼두기
+        const actCharA1 = turnInformation.resultSpeed.shift();
+        //
+        let alreadyActTempA1 = alreadyAct;
+        alreadyActTempA1.push(actCharA1);
+        setAlreadyAct(alreadyActTempA1);
+        //
         console.log('턴인포', turnInformation.resultSpeed);
-        //resultSpeedTemp.shift();
+        console.log('행동한 아군 ', actCharA1);
+        console.log('행동한 아군 목록 ', alreadyAct);
+        //return
+        return turnInformation;
+      case 'A2':
+        console.log(
+          `${currentCharacter.charName} uses ${currentCharacter.activeSkillSecond}!`
+        );
+        let myDeckDataTempA2 = myDeckData;
+        let enemyDeckDataTempA2 = enemyDeckData;
+        //버프디버프 체크 아군
+        myDeckDataTempA2 = buffDebuffCheckOur(
+          myDeckDataTempA2,
+          currentCharacter
+        );
+        //버프디버프 체크 적군
+        enemyDeckDataTempA2 = buffDebuffCheckEnemy(
+          enemyDeckDataTempA2,
+          currentCharacter
+        );
+        //set
+        setMyDeckData(myDeckDataTempA2);
+        setEnemyDeckData(enemyDeckDataTempA2);
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행동한 아군 빼두기
+        const actCharA2 = turnInformation.resultSpeed.shift();
+        //
+        let alreadyActTempA2 = alreadyAct;
+        alreadyActTempA2.push(actCharA2);
+        setAlreadyAct(alreadyActTempA2);
+        //
+        console.log('턴인포', turnInformation.resultSpeed);
+        console.log('행동한 아군 ', actCharA2);
+        console.log('행동한 아군 목록 ', alreadyAct);
+        //return
         return turnInformation;
       case 'U':
         console.log(
           `${currentCharacter.charName} uses ${currentCharacter.ultSkill}!`
         );
-
+        let myDeckDataTempU = myDeckData;
+        let enemyDeckDataTempU = enemyDeckData;
         // 해당 스킬에 대한 행동 로직 추가
         //run choosedChar[0].ultSkill
-        setCharacterStatDetail({
-          id: 0,
-          charName: '',
-          HPcurrent: 0,
-          HPstat: 0,
-          physicResist: 0,
-          magicResist: 0,
-          attack: 0,
-          speed: 0,
-          accuracy: 0,
-          isMagic: false,
-          isAdjutant: false,
-          isEnemy: false,
-          passiveSkill: '',
-          activeSkill: '',
-          ultSkill: '',
-          lovePointCurrent: 0,
-          Line: '',
-          Position: '',
-          img: '',
-        });
-        turnInformation.resultSpeed.shift();
+        //버프디버프 체크 아군
+        myDeckDataTempU = buffDebuffCheckOur(myDeckDataTempU, currentCharacter);
+        //버프디버프 체크 적군
+        enemyDeckDataTempU = buffDebuffCheckEnemy(
+          enemyDeckDataTempU,
+          currentCharacter
+        );
+        //set
+        setMyDeckData(myDeckDataTempU);
+        setEnemyDeckData(enemyDeckDataTempU);
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행동한 아군 빼두기
+        const actCharU = turnInformation.resultSpeed.shift();
+        //
+        let alreadyActTempU = alreadyAct;
+        alreadyActTempU.push(actCharU);
+        setAlreadyAct(alreadyActTempU);
+        //
         console.log('턴인포', turnInformation.resultSpeed);
-        //resultSpeedTemp.shift();
-        //console.log('리절트스피드템프 ', resultSpeedTemp);
+        console.log('행동한 아군 ', actCharU);
+        console.log('행동한 아군 목록 ', alreadyAct);
+        //return
         return turnInformation;
       case 'O':
         console.log(
           `${currentCharacter.charName} attacks with a basic attack!`
         );
-        const myDeckDataTemp2 = myDeckData;
-        const enemyDeckDataTemp2 = enemyDeckData;
+        let myDeckDataTempO = myDeckData;
+        let enemyDeckDataTempO = enemyDeckData;
         if (currentCharacter.charName === '정희찬') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else if (currentCharacter.charName === '이현성') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else if (currentCharacter.charName === '공태성') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else if (currentCharacter.charName === '최종수') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else if (currentCharacter.charName === '진재유') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else if (currentCharacter.charName === '전영중') {
-          enemyDeckDataTemp2.map((item) => {
+          enemyDeckDataTempO.forEach((item) => {
             item.HPcurrent -= currentCharacter.attack;
+            console.log(
+              `${currentCharacter.charName}이 ${currentCharacter.attack}의 공격력으로 평타를 친 결과 적의 HP가 ${item.HPcurrent}으로 되었습니다.`
+            );
           });
         } else {
           console.log('error');
         }
-        setMyDeckData(myDeckDataTemp2);
-        setEnemyDeckData(enemyDeckDataTemp2);
-        setCharacterStatDetail({
-          id: 0,
-          charName: '',
-          HPcurrent: 0,
-          HPstat: 0,
-          physicResist: 0,
-          magicResist: 0,
-          attack: 0,
-          speed: 0,
-          accuracy: 0,
-          isMagic: false,
-          isAdjutant: false,
-          isEnemy: false,
-          passiveSkill: '',
-          activeSkill: '',
-          ultSkill: '',
-          lovePointCurrent: 0,
-          Line: '',
-          Position: '',
-          img: '',
-        });
-        turnInformation.resultSpeed.shift();
-        console.log('턴인포', turnInformation.resultSpeed);
-        //resultSpeedTemp.shift();
-        //console.log('리절트스피드템프 ', resultSpeedTemp);
+        //버프디버프 체크 아군
+        myDeckDataTempO = buffDebuffCheckOur(myDeckDataTempO, currentCharacter);
+        //버프디버프 체크 적군
+        enemyDeckDataTempO = buffDebuffCheckEnemy(
+          enemyDeckDataTempO,
+          currentCharacter
+        );
+        //set
+        setMyDeckData(myDeckDataTempO);
+        setEnemyDeckData(enemyDeckDataTempO);
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행동한 아군 빼두기
+        const actCharO = turnInformation.resultSpeed.shift();
+        //
+        let alreadyActTempO = alreadyAct;
+        alreadyActTempO.push(actCharO);
+        setAlreadyAct(alreadyActTempO);
+        //
+        console.log('턴인포 ', turnInformation.resultSpeed);
+        console.log('행동한 아군 ', actCharO);
+        console.log('행동한 아군 목록 ', alreadyAct);
+        //return
         return turnInformation;
       case 'E':
         console.log('enemy attack');
-        setCharacterStatDetail({
-          id: 0,
-          charName: '',
-          HPcurrent: 0,
-          HPstat: 0,
-          physicResist: 0,
-          magicResist: 0,
-          attack: 0,
-          speed: 0,
-          accuracy: 0,
-          isMagic: false,
-          isAdjutant: false,
-          isEnemy: false,
-          passiveSkill: '',
-          activeSkill: '',
-          ultSkill: '',
-          lovePointCurrent: 0,
-          Line: '',
-          Position: '',
-          img: '',
-        });
+        let myDeckDataTempE = myDeckData;
+        let enemyDeckDataTempE = enemyDeckData;
+        //버프디버프 체크 아군
+        myDeckDataTempE = buffDebuffCheckOur(myDeckDataTempE, currentCharacter);
+        //버프디버프 체크 적군
+        enemyDeckDataTempE = buffDebuffCheckEnemy(
+          enemyDeckDataTempE,
+          currentCharacter
+        );
+        //set
+        setMyDeckData(myDeckDataTempE);
+        setEnemyDeckData(enemyDeckDataTempE);
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행둥한 적 빼두기
         turnInformation.resultSpeed.shift();
         console.log('턴인포', turnInformation.resultSpeed);
-        //resultSpeedTemp.shift();
-        //console.log('리절트스피드템프 ', resultSpeedTemp);
+        //return
         return turnInformation;
       default:
-        setCharacterStatDetail({
-          id: 0,
-          charName: '',
-          HPcurrent: 0,
-          HPstat: 0,
-          physicResist: 0,
-          magicResist: 0,
-          attack: 0,
-          speed: 0,
-          accuracy: 0,
-          isMagic: false,
-          isAdjutant: false,
-          isEnemy: false,
-          passiveSkill: '',
-          activeSkill: '',
-          ultSkill: '',
-          lovePointCurrent: 0,
-          Line: '',
-          Position: '',
-          img: '',
-        });
+        //초기화
+        setCharacterStatDetail(currentCharacterReset);
+        //행동한 캐릭터 빼두기
         turnInformation.resultSpeed.shift();
         console.log('턴인포', turnInformation.resultSpeed);
-        //resultSpeedTemp.shift();
-        //console.log('리절트스피드템프 ', resultSpeedTemp);
+        //return
         return turnInformation;
     }
   };
@@ -530,9 +881,9 @@ function CombatDemo3() {
           </button>
         </div>
       </div>
-      <div className="InfoBox">
+      <div className="InfoBox" style={{ width: '350px' }}>
         <div>
-          턴<p>규칙: 턴 내의 순서는 속도판정</p>
+          턴 정보 {`(규칙: 턴 내 행동 순서는 속도로 판정)`}
           <div
             style={{
               border:
@@ -555,7 +906,7 @@ function CombatDemo3() {
               ? '전투 시작 전 입니다'
               : `${turnInformation.turnNumber}번째 턴 입니다`}
           </div>
-          <div>
+          <div style={{ height: '200px' }}>
             턴 순서 결과:
             <div id="speedResultBox">
               {turnInformation.resultSpeed.map((i) => {
@@ -573,8 +924,8 @@ function CombatDemo3() {
             </div>
           </div>
         </div>
-        <div style={{ border: '2px solid red' }}>
-          스탯
+        <div style={{ height: '630px', border: '2px solid red' }}>
+          스탯 정보
           <div>이름 {characterStatDetail.charName}</div>
           <div>
             HP {characterStatDetail.HPcurrent}/{characterStatDetail.HPstat}
@@ -582,8 +933,10 @@ function CombatDemo3() {
           <div>물리방어 {characterStatDetail.physicResist}</div>
           <div>마법방어 {characterStatDetail.magicResist}</div>
           <div>공격력 {characterStatDetail.attack}</div>
-          <div>민첩 {characterStatDetail.speed}</div>
+          <div>속도 {characterStatDetail.speed}</div>
           <div>명중 {characterStatDetail.accuracy}</div>
+          <div>회피 {characterStatDetail.evasion}</div>
+          <div>크리티컬 {characterStatDetail.critical}</div>
           <p>스킬</p>
           <div
             style={{
@@ -600,12 +953,21 @@ function CombatDemo3() {
             >
               {'평타'} (O)
             </button>
+            <br></br>
             <button
               value={characterStatDetail.id}
-              onClick={(e) => handleSkillSelect(e, 'A')}
+              onClick={(e) => handleSkillSelect(e, 'A1')}
             >
-              {characterStatDetail.activeSkill} (A)
+              {characterStatDetail.activeSkillFirst} (A1)
             </button>
+            <br></br>
+            <button
+              value={characterStatDetail.id}
+              onClick={(e) => handleSkillSelect(e, 'A2')}
+            >
+              {characterStatDetail.activeSkillSecond} (A2)
+            </button>
+            <br></br>
             <button
               value={characterStatDetail.id}
               onClick={(e) => handleSkillSelect(e, 'U')}
@@ -613,6 +975,24 @@ function CombatDemo3() {
               {characterStatDetail.ultSkill} (U)
             </button>
           </div>
+          <p>버프</p>
+          {characterStatDetail.buff.map((item) => {
+            return (
+              <div
+                key={item.buffNumber}
+                style={{
+                  display:
+                    item.buffNumber === 0 || item.buffDuration === 0
+                      ? 'none'
+                      : 'block',
+                }}
+              >
+                {item.buffDuration}턴 동안 {item.buffAmmount}만큼
+                {''} {item.buffStat}을 버프 - from {item.buffFrom}
+              </div>
+            );
+          })}
+          <p>디버프</p>
         </div>
       </div>
       <table
@@ -647,7 +1027,8 @@ function CombatDemo3() {
                     <div>
                       <div className="skillButton">
                         <div>패시브: {item.passiveSkill}</div>
-                        <div>액티브: {item.activeSkill}</div>
+                        <div>액티브1: {item.activeSkillFirst}</div>
+                        <div>액티브2: {item.activeSkillSecond}</div>
                         <div>궁극기: {item.ultSkill}</div>
                       </div>
                       <div className="statBar">
@@ -689,7 +1070,8 @@ function CombatDemo3() {
                     <div>
                       <div className="skillButton">
                         <div>패시브: {item.passiveSkill}</div>
-                        <div>액티브: {item.activeSkill}</div>
+                        <div>액티브1: {item.activeSkillFirst}</div>
+                        <div>액티브2: {item.activeSkillSecond}</div>
                         <div>궁극기: {item.ultSkill}</div>
                       </div>
                       <div className="statBar">
@@ -731,7 +1113,8 @@ function CombatDemo3() {
                     <div>
                       <div className="skillButton">
                         <div>패시브: {item.passiveSkill}</div>
-                        <div>액티브: {item.activeSkill}</div>
+                        <div>액티브1: {item.activeSkillFirst}</div>
+                        <div>액티브2: {item.activeSkillSecond}</div>
                         <div>궁극기: {item.ultSkill}</div>
                       </div>
                       <div className="statBar">

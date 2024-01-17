@@ -1,10 +1,11 @@
 import './App.css';
 import CombatDemo from './combat-demo';
-import CombatDemo2 from './combat-demo-2';
+import MoreSimpleDamage from './combat-demo-2';
 import CombatDemo3 from './combat-demo-3';
+import DamageCalculateDemo from './combat-demo-simplyfy';
 
 function App() {
-  return <CombatDemo3 />;
+  return <DamageCalculateDemo />;
 }
 
 export default App;
