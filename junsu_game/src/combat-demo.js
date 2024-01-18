@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 //맵 데이터를 불러들임
 //적 데이터를 불러들임
 
-function CombatDemo3() {
+function CombatDemo() {
   const [myDeckData, setMyDeckData] = useState([
     {
       id: 1,
@@ -25,6 +25,7 @@ function CombatDemo3() {
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
+      isSixMan: true,
       passiveSkill: '바람의 힘으로!',
       activeSkillFirst: '최고의 응원!',
       activeSkillSecond: '한 번 더 너에게',
@@ -50,8 +51,7 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 10,
-      Line: 'back',
-      Position: 'center',
+      Position: 6,
       img: 'heechan_sd_1',
     },
     {
@@ -70,6 +70,7 @@ function CombatDemo3() {
       isMagic: true,
       isAdjutant: false,
       isEnemy: false,
+      isSixMan: false,
       passiveSkill: '젊은 멘토',
       activeSkillFirst: '타임아웃',
       activeSkillSecond: '멤버 교체',
@@ -95,8 +96,7 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 10,
-      Line: 'back',
-      Position: 'left',
+      Position: 4,
       img: 'hyunsung_sd_1',
     },
     {
@@ -115,6 +115,7 @@ function CombatDemo3() {
       isMagic: true,
       isAdjutant: true,
       isEnemy: false,
+      isSixMan: false,
       passiveSkill: '플레이 메이커',
       activeSkillFirst: '내만 믿어라',
       activeSkillSecond: '직접 할 차례다',
@@ -140,8 +141,7 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 10,
-      Line: 'back',
-      Position: 'right',
+      Position: 5,
       img: 'jaeyu_sd_1',
     },
     {
@@ -160,6 +160,7 @@ function CombatDemo3() {
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
+      isSixMan: false,
       passiveSkill: '넘어설 벽',
       activeSkillFirst: '찢어버리기',
       activeSkillSecond: '동기부여가 잘 돼',
@@ -185,8 +186,7 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 10,
-      Line: 'mid',
-      Position: 'right',
+      Position: 2,
       img: 'jongsu_sd_1',
     },
     {
@@ -205,6 +205,7 @@ function CombatDemo3() {
       isMagic: true,
       isAdjutant: false,
       isEnemy: false,
+      isSixMan: false,
       passiveSkill: '드래곤의 피지컬',
       activeSkillFirst: '드래곤 스매셔',
       activeSkillSecond: '하늘을 향해',
@@ -231,7 +232,7 @@ function CombatDemo3() {
       ],
       lovePointCurrent: 10,
       Line: 'mid',
-      Position: 'center',
+      Position: 3,
       img: 'taesung_sd_1',
     },
     {
@@ -250,6 +251,7 @@ function CombatDemo3() {
       isMagic: false,
       isAdjutant: false,
       isEnemy: false,
+      isSixMan: false,
       passiveSkill: '늑대정신',
       activeSkillFirst: '최고의 디펜더',
       activeSkillSecond: '살아남을 거야',
@@ -275,8 +277,7 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 10,
-      Line: 'front',
-      Position: 'center',
+      Position: 1,
       img: 'youngjung_sd_1',
     },
   ]);
@@ -297,6 +298,7 @@ function CombatDemo3() {
       isMagic: false,
       isAdjutant: false,
       isEnemy: true,
+      isSixMan: false,
       passiveSkill: '오염의 근원',
       activeSkillFirst: '어딜 가려고?',
       activeSkillSecond: '한심한 건 너잖아',
@@ -322,23 +324,249 @@ function CombatDemo3() {
         },
       ],
       lovePointCurrent: 0,
-      Line: 'mid',
-      Position: 'center',
+      Position: 1,
       img: 'Boss_BBang_sd_1',
     },
+    {
+      id: 8,
+      charName: '서은재',
+      HPcurrent: 99999,
+      HPstat: 99999,
+      physicResist: 4,
+      magicResist: 3,
+      attack: 11,
+      speed: 5,
+      accuracy: 0.9,
+      evasion: 0.3,
+      critical: 0.4,
+      critDamageRate: 2.1,
+      isMagic: true,
+      isAdjutant: false,
+      isEnemy: true,
+      isSixMan: false,
+      passiveSkill: '응원단',
+      activeSkillFirst: '우등생',
+      activeSkillSecond: '비법노트',
+      ultSkill: '사랑에 빠진 소녀',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
+      lovePointCurrent: 0,
+      Position: 4,
+      img: 'seoeunjae_sd_1',
+    },
+    {
+      id: 9,
+      charName: '박병찬',
+      HPcurrent: 99999,
+      HPstat: 99999,
+      physicResist: 4,
+      magicResist: 3,
+      attack: 11,
+      speed: 5,
+      accuracy: 0.9,
+      evasion: 0.3,
+      critical: 0.4,
+      critDamageRate: 2.1,
+      isMagic: false,
+      isAdjutant: false,
+      isEnemy: true,
+      isSixMan: false,
+      passiveSkill: '12분',
+      activeSkillFirst: '제법인데?',
+      activeSkillSecond: '걱정마세요',
+      ultSkill: '죽여버릴거야...',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
+      lovePointCurrent: 0,
+      Position: 2,
+      img: 'byeongchan_sd_1',
+    },
+    {
+      id: 10,
+      charName: '기상호',
+      HPcurrent: 99999,
+      HPstat: 99999,
+      physicResist: 4,
+      magicResist: 3,
+      attack: 11,
+      speed: 5,
+      accuracy: 0.9,
+      evasion: 0.3,
+      critical: 0.4,
+      critDamageRate: 2.1,
+      isMagic: true,
+      isAdjutant: false,
+      isEnemy: true,
+      isSixMan: false,
+      passiveSkill: '언럭키',
+      activeSkillFirst: '사륜안!',
+      activeSkillSecond: '왼팔에 흑염룡이...',
+      ultSkill: '에이스 브레이커',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
+      lovePointCurrent: 0,
+      Position: 3,
+      img: 'sangho_sd_1',
+    },
+    {
+      id: 11,
+      charName: '성준수',
+      HPcurrent: 99999,
+      HPstat: 99999,
+      physicResist: 4,
+      magicResist: 3,
+      attack: 11,
+      speed: 5,
+      accuracy: 0.9,
+      evasion: 0.3,
+      critical: 0.4,
+      critDamageRate: 2.1,
+      isMagic: false,
+      isAdjutant: false,
+      isEnemy: true,
+      isSixMan: false,
+      passiveSkill: '엘리트 출신',
+      activeSkillFirst: '할 때는 한다',
+      activeSkillSecond: '착각하지 마',
+      ultSkill: '부숴버려',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
+      lovePointCurrent: 0,
+      Position: 5,
+      img: 'junsu_sd_1',
+    },
+    {
+      id: 12,
+      charName: '김다은',
+      HPcurrent: 99999,
+      HPstat: 99999,
+      physicResist: 4,
+      magicResist: 3,
+      attack: 11,
+      speed: 5,
+      accuracy: 0.9,
+      evasion: 0.3,
+      critical: 0.4,
+      critDamageRate: 2.1,
+      isMagic: false,
+      isAdjutant: false,
+      isEnemy: true,
+      isSixMan: true,
+      passiveSkill: '원래는 마법사가...',
+      activeSkillFirst: '길을 찾고 싶어',
+      activeSkillSecond: '마르세유 턴',
+      ultSkill: '우직하게',
+      buff: [
+        {
+          buffNumber: 0,
+          buffType: '',
+          buffFrom: '',
+          buffStat: '',
+          buffAmmount: 0,
+          buffDuration: 0,
+        },
+      ],
+      debuff: [
+        {
+          debuffNumber: 0,
+          debuffType: '',
+          debuffFrom: '',
+          debuffStat: '',
+          debuffAmmount: 0,
+          debuffDuration: 0,
+        },
+      ],
+      lovePointCurrent: 0,
+      Position: 6,
+      img: 'kimdaeun_sd_1',
+    },
   ]);
-  //전열 미드 후열
-  const frontLine = myDeckData.filter(
-    (myDeckData) => myDeckData.Line === 'front'
-  );
-  const midLine = myDeckData.filter((myDeckData) => myDeckData.Line === 'mid');
-  const backLine = myDeckData.filter(
-    (myDeckData) => myDeckData.Line === 'back'
-  );
-  //상세 스탯 표시 함수
-  const [characterStatDetail, setCharacterStatDetail] = useState({
+
+  //줄세우기
+  let ourLine = myDeckData.sort(function (a, b) {
+    return a.Position - b.Position;
+  });
+  let enemyLine = enemyDeckData.sort(function (a, b) {
+    return a.Position - b.Position;
+  });
+  let enemyLineReverse = enemyLine;
+  enemyLineReverse.reverse();
+  //리셋용
+  const forReset = {
     id: 0,
-    charName: '',
+    charName: 'Buffer',
     HPcurrent: 0,
     HPstat: 0,
     physicResist: 0,
@@ -352,6 +580,7 @@ function CombatDemo3() {
     isMagic: false,
     isAdjutant: false,
     isEnemy: false,
+    isSixMan: false,
     passiveSkill: '',
     activeSkillFirst: '',
     activeSkillSecond: '',
@@ -377,22 +606,39 @@ function CombatDemo3() {
       },
     ],
     lovePointCurrent: 0,
-    Line: '',
-    Position: '',
+    Position: 0,
     img: '',
-  });
+  };
+  //상세 스탯 표시 함수
+  const [characterStatDetail, setCharacterStatDetail] = useState(forReset);
+  useEffect(() => {
+    console.log('useEffect charstatdetail ', characterStatDetail);
+  }, [characterStatDetail]);
 
-  const [selectedCharacterId, setSelectedCharacterId] = useState(null);
+  const [attacker, setAttacker] = useState(forReset);
+  const [defender, setDefender] = useState(forReset);
+
+  const allDeckData = myDeckData.concat(enemyDeckData, forReset);
 
   const onShowStatDetail = (id) => {
-    const newCharacterStatDetail = myDeckData.filter((item) => item.id === id);
-    console.log(newCharacterStatDetail);
+    console.log('올 덱 데이타', allDeckData);
+    console.log('씨발 아이디', id);
+    const newCharacterStatDetail = allDeckData.filter((item) => item.id === id);
+    console.log(newCharacterStatDetail[0]);
     setCharacterStatDetail(newCharacterStatDetail[0]);
-    setSelectedCharacterId(id);
+  };
+  const onDragAttacker = (item) => {
+    console.log('Attacker ', item);
+    setAttacker(item);
+  };
+  const onDragDefender = (item) => {
+    console.log('Defender ', item);
+    setDefender(item);
   };
 
-  const allDeckData = myDeckData.concat(enemyDeckData);
-
+  const onDragOver = (e) => {
+    e.preventDefault();
+  };
   //턴 세부 정보
   const [turnInformation, setTrunInformation] = useState({
     turnNumber: 0,
@@ -407,10 +653,6 @@ function CombatDemo3() {
 
   const [alreadyAct, setAlreadyAct] = useState([]);
 
-  /*useEffect(() => {
-    console.log('턴 렌더링 좀 다시 해줘...', turnInformation);
-  }, [turnInformation]);*/
-
   //속도 우선도 판정
   const runCheckSpeed = () => {
     //턴 정보 받아오기
@@ -422,11 +664,11 @@ function CombatDemo3() {
       speed: item.speed + item.speed * Math.random() * 0.4, //속도판정공식
     }));
     const resultSpeedTemp = speedCheck.sort((a, b) => b.speed - a.speed);
-    resultSpeedTemp.push({
+    /*resultSpeedTemp.push({
       id: 0,
       charName: 'Buffer',
       speed: 0,
-    });
+    });*/
     console.log('리절트 스피드 임시', resultSpeedTemp);
     const turnInformationTemp = {
       turnNumber: currentTurn + 1,
@@ -434,12 +676,12 @@ function CombatDemo3() {
     };
     return turnInformationTemp;
   };
+
   const loadCheckSpeed = () => {
     setTrunInformation(runCheckSpeed());
   };
 
   //버프디버프
-
   const buffDebuffCheckOur = (myDeckDataTemp, currentCharacter) => {
     //버프 체크 아군
     myDeckDataTemp.forEach((item) => {
@@ -576,51 +818,7 @@ function CombatDemo3() {
   const damageCalculation = (selectedCharacter, selectedEnemy) => {
     //변수설정
     let myCharacter,
-      enemyCharacter = {
-        id: 0,
-        charName: '',
-        HPcurrent: 0,
-        HPstat: 0,
-        physicResist: 0,
-        magicResist: 0,
-        attack: 0,
-        speed: 0,
-        accuracy: 0,
-        evasion: 0,
-        critical: 0,
-        critDamageRate: 0,
-        isMagic: false,
-        isAdjutant: false,
-        isEnemy: false,
-        passiveSkill: '',
-        activeSkillFirst: '',
-        activeSkillSecond: '',
-        ultSkill: '',
-        buff: [
-          {
-            buffNumber: 0,
-            buffType: '',
-            buffFrom: '',
-            buffStat: '',
-            buffAmmount: 0,
-            buffDuration: 0,
-          },
-        ],
-        debuff: [
-          {
-            debuffNumber: 0,
-            debuffType: '',
-            debuffFrom: '',
-            debuffStat: '',
-            debuffAmmount: 0,
-            debuffDuration: 0,
-          },
-        ],
-        lovePointCurrent: 0,
-        Line: '',
-        Position: '',
-        img: '',
-      };
+      enemyCharacter = forReset;
     myCharacter = selectedCharacter;
     enemyCharacter = selectedEnemy;
     let finalDamage = 0;
@@ -716,54 +914,14 @@ function CombatDemo3() {
 
   const handleSkillSelect = (e, selectedSkill) => {
     let currentCharacter,
-      currentCharacterReset = {
-        id: 0,
-        charName: '',
-        HPcurrent: 0,
-        HPstat: 0,
-        physicResist: 0,
-        magicResist: 0,
-        attack: 0,
-        speed: 0,
-        accuracy: 0,
-        evasion: 0,
-        critical: 0,
-        critDamageRate: 0,
-        isMagic: false,
-        isAdjutant: false,
-        isEnemy: false,
-        passiveSkill: '',
-        activeSkillFirst: '',
-        activeSkillSecond: '',
-        ultSkill: '',
-        buff: [
-          {
-            buffNumber: 0,
-            buffType: '',
-            buffFrom: '',
-            buffStat: '',
-            buffAmmount: 0,
-            buffDuration: 0,
-          },
-        ],
-        debuff: [
-          {
-            debuffNumber: 0,
-            debuffType: '',
-            debuffFrom: '',
-            debuffStat: '',
-            debuffAmmount: 0,
-            debuffDuration: 0,
-          },
-        ],
-        lovePointCurrent: 0,
-        Line: '',
-        Position: '',
-        img: '',
-      };
+      currentAttacker,
+      currentDefender = forReset;
     console.log(e);
     console.log(e.target.value);
     currentCharacter = characterStatDetail;
+    console.log('캐릭터스탯디테일 ', characterStatDetail);
+    currentAttacker = attacker;
+    currentDefender = defender;
     console.log(currentCharacter);
     switch (selectedSkill) {
       case 'A1':
@@ -771,9 +929,9 @@ function CombatDemo3() {
           `${currentCharacter.charName} uses ${currentCharacter.activeSkillFirst}!`
         );
         // 해당 스킬에 대한 행동 로직 추가
-        //run choosedChar[0].activeSkill
         let myDeckDataTempA1 = myDeckData;
         let enemyDeckDataTempA1 = enemyDeckData;
+        //캐릭터별 스킬 로직
         if (currentCharacter.charName === '정희찬') {
           myDeckDataTempA1.forEach((item) => {
             item.buff.push({
@@ -789,6 +947,7 @@ function CombatDemo3() {
             item.attack += 4;
           });
         } else if (currentCharacter.charName === '이현성') {
+          //5hp씩 힐
           myDeckDataTempA1.forEach((item) => {
             if (item.HPcurrent + 5 > item.HPstat) {
               item.HPcurrent = item.HPstat;
@@ -841,7 +1000,7 @@ function CombatDemo3() {
         setMyDeckData(myDeckDataTempA1);
         setEnemyDeckData(enemyDeckDataTempA1);
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
+        setCharacterStatDetail(forReset);
         //행동한 아군 빼두기
         const actCharA1 = turnInformation.resultSpeed.shift();
         //
@@ -874,7 +1033,7 @@ function CombatDemo3() {
         setMyDeckData(myDeckDataTempA2);
         setEnemyDeckData(enemyDeckDataTempA2);
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
+        setCharacterStatDetail(forReset);
         //행동한 아군 빼두기
         const actCharA2 = turnInformation.resultSpeed.shift();
         //
@@ -906,7 +1065,7 @@ function CombatDemo3() {
         setMyDeckData(myDeckDataTempU);
         setEnemyDeckData(enemyDeckDataTempU);
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
+        setCharacterStatDetail(forReset);
         //행동한 아군 빼두기
         const actCharU = turnInformation.resultSpeed.shift();
         //
@@ -925,7 +1084,7 @@ function CombatDemo3() {
         );
         let myDeckDataTempO = myDeckData;
         let enemyDeckDataTempO = enemyDeckData;
-        if (currentCharacter.id < 7) {
+        /*if (currentCharacter.id < 7) {
           enemyDeckDataTempO.forEach((item) => {
             [currentCharacter, item] = damageCalculation(
               currentCharacter,
@@ -937,6 +1096,19 @@ function CombatDemo3() {
           });
         } else {
           console.log('error');
+        }*/
+        if (
+          currentDefender.charName === 'Buffer' ||
+          currentDefender.charName === ''
+        ) {
+          console.log('please select enemy target');
+          alert('please select enemy target');
+          return turnInformation;
+        } else {
+          [currentCharacter, currentDefender] = damageCalculation(
+            currentCharacter,
+            currentDefender
+          );
         }
         //버프디버프 체크 아군
         myDeckDataTempO = buffDebuffCheckOur(myDeckDataTempO, currentCharacter);
@@ -949,7 +1121,7 @@ function CombatDemo3() {
         setMyDeckData(myDeckDataTempO);
         setEnemyDeckData(enemyDeckDataTempO);
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
+        setCharacterStatDetail(forReset);
         //행동한 아군 빼두기
         const actCharO = turnInformation.resultSpeed.shift();
         //
@@ -977,7 +1149,7 @@ function CombatDemo3() {
         setMyDeckData(myDeckDataTempE);
         setEnemyDeckData(enemyDeckDataTempE);
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
+        setCharacterStatDetail(forReset);
         //행둥한 적 빼두기
         turnInformation.resultSpeed.shift();
         console.log('턴인포', turnInformation.resultSpeed);
@@ -985,9 +1157,7 @@ function CombatDemo3() {
         return turnInformation;
       default:
         //초기화
-        setCharacterStatDetail(currentCharacterReset);
-        //행동한 캐릭터 빼두기
-        turnInformation.resultSpeed.shift();
+        setCharacterStatDetail(forReset);
         console.log('턴인포', turnInformation.resultSpeed);
         //return
         return turnInformation;
@@ -997,42 +1167,66 @@ function CombatDemo3() {
   return (
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignContent: 'center',
-        flexWrap: 'wrap',
+        display: 'block',
       }}
     >
       <div className="BossBox">
-        <img
-          src={process.env.PUBLIC_URL + `/img/${enemyDeckData[0].img}.png`}
-          style={{ width: '240px' }}
-          alt="Boss img"
-        ></img>
-        <p>
-          HP {enemyDeckData[0].HPcurrent}/{enemyDeckData[0].HPstat}
-        </p>
-        <div
-          style={{
-            display:
-              turnInformation.resultSpeed[0].id === enemyDeckData[0].id
-                ? 'block'
-                : 'none',
-          }}
+        <table
+          className="EnemyTable"
+          style={{ border: '1px solid black', borderCollapse: 'collapse' }}
         >
-          보스의 턴 입니다!
-          <div>보스를 행동하게 해주세요</div>
-          <button
-            value={enemyDeckData[0].id}
-            onClick={(e) => handleSkillSelect(e, 'E')}
-          >
-            보스 턴 실행
-          </button>
-        </div>
+          <tbody>
+            <tr
+              style={{ border: '1px solid black', borderCollapse: 'collapse' }}
+            >
+              {enemyLine.map((item) => {
+                return (
+                  <td key={item.id}>
+                    <div
+                      style={{
+                        display: 'flex',
+                      }}
+                    >
+                      <div
+                        style={{
+                          border:
+                            turnInformation.resultSpeed[0].id === item.id
+                              ? '2px solid red'
+                              : '2px solid transparent',
+                        }}
+                      >
+                        <img
+                          src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                          style={{ width: '120px', position: 'relative' }}
+                          alt={`${item.img}`}
+                          onClick={() => onShowStatDetail(item.id)}
+                        ></img>
+                      </div>
+                      <div>
+                        <div className="skillButton">
+                          <div>패시브: {item.passiveSkill}</div>
+                          <div>액티브1: {item.activeSkillFirst}</div>
+                          <div>액티브2: {item.activeSkillSecond}</div>
+                          <div>궁극기: {item.ultSkill}</div>
+                        </div>
+                        <div className="statBar">
+                          <p>
+                            체력: {item.HPcurrent}/{item.HPstat}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div className="InfoBox" style={{ width: '350px' }}>
+      <div className="InfoBox" style={{ display: 'flex', height: '560px' }}>
         <div>
-          턴 정보 {`(규칙: 턴 내 행동 순서는 속도로 판정)`}
+          <p>턴 정보</p>
+          <div>규칙: 턴 내 행동 순서는 속도로 판정</div>
           <div
             style={{
               border:
@@ -1055,7 +1249,7 @@ function CombatDemo3() {
               ? '전투 시작 전 입니다'
               : `${turnInformation.turnNumber}번째 턴 입니다`}
           </div>
-          <div style={{ height: '200px' }}>
+          <div style={{ height: '450px' }}>
             턴 순서 결과:
             <div id="speedResultBox">
               {turnInformation.resultSpeed.map((i) => {
@@ -1073,59 +1267,87 @@ function CombatDemo3() {
             </div>
           </div>
         </div>
-        <div style={{ height: '630px', border: '2px solid red' }}>
+        <div
+          style={{ height: '450px', width: '300px', border: '2px solid red' }}
+        >
           스탯 정보
-          <div>이름 {characterStatDetail.charName}</div>
-          <div>
-            HP {characterStatDetail.HPcurrent}/{characterStatDetail.HPstat}
-          </div>
-          <div>데미지 유형 {characterStatDetail.isMagic ? '마법' : '물리'}</div>
-          <div>물리방어 {characterStatDetail.physicResist}</div>
-          <div>마법방어 {characterStatDetail.magicResist}</div>
-          <div>공격력 {characterStatDetail.attack}</div>
-          <div>속도 {characterStatDetail.speed}</div>
-          <div>명중 {characterStatDetail.accuracy}</div>
-          <div>회피 {characterStatDetail.evasion}</div>
-          <div>크리티컬 확률 {characterStatDetail.critical}</div>
-          <div>크리티컬 데미지 {characterStatDetail.critDamageRate}</div>
-          <p>스킬</p>
           <div
             style={{
               display:
-                characterStatDetail.charName ===
-                turnInformation.resultSpeed[0].charName
-                  ? 'block'
-                  : 'none',
+                characterStatDetail.charName === 'Buffer' ? 'none' : 'block',
             }}
           >
-            <button
-              value={characterStatDetail.id}
-              onClick={(e) => handleSkillSelect(e, 'O')}
+            <div>이름 {characterStatDetail.charName}</div>
+            <div>
+              HP {characterStatDetail.HPcurrent}/{characterStatDetail.HPstat}
+            </div>
+            <div>
+              데미지 유형 {characterStatDetail.isMagic ? '마법' : '물리'}
+            </div>
+            <div>물리방어 {characterStatDetail.physicResist}</div>
+            <div>마법방어 {characterStatDetail.magicResist}</div>
+            <div>공격력 {characterStatDetail.attack}</div>
+            <div>속도 {characterStatDetail.speed}</div>
+            <div>명중 {characterStatDetail.accuracy}</div>
+            <div>회피 {characterStatDetail.evasion}</div>
+            <div>크리티컬 확률 {characterStatDetail.critical}</div>
+            <div>크리티컬 데미지 {characterStatDetail.critDamageRate}</div>
+            <p>스킬</p>
+            <div
+              style={{
+                display:
+                  characterStatDetail.charName ===
+                    turnInformation.resultSpeed[0].charName &&
+                  characterStatDetail.id < 7
+                    ? 'block'
+                    : 'none',
+              }}
             >
-              {'평타'} (O)
-            </button>
-            <br></br>
-            <button
-              value={characterStatDetail.id}
-              onClick={(e) => handleSkillSelect(e, 'A1')}
+              <button
+                value={characterStatDetail.id}
+                onClick={(e) => handleSkillSelect(e, 'O')}
+              >
+                {'평타'} (O)
+              </button>
+              <button
+                value={characterStatDetail.id}
+                onClick={(e) => handleSkillSelect(e, 'A1')}
+              >
+                {characterStatDetail.activeSkillFirst} (A1)
+              </button>
+              <button
+                value={characterStatDetail.id}
+                onClick={(e) => handleSkillSelect(e, 'A2')}
+              >
+                {characterStatDetail.activeSkillSecond} (A2)
+              </button>
+              <button
+                value={characterStatDetail.id}
+                onClick={(e) => handleSkillSelect(e, 'U')}
+              >
+                {characterStatDetail.ultSkill} (U)
+              </button>
+            </div>
+            <div
+              style={{
+                display:
+                  characterStatDetail.charName ===
+                    turnInformation.resultSpeed[0].charName &&
+                  characterStatDetail.id >= 7
+                    ? 'block'
+                    : 'none',
+              }}
             >
-              {characterStatDetail.activeSkillFirst} (A1)
-            </button>
-            <br></br>
-            <button
-              value={characterStatDetail.id}
-              onClick={(e) => handleSkillSelect(e, 'A2')}
-            >
-              {characterStatDetail.activeSkillSecond} (A2)
-            </button>
-            <br></br>
-            <button
-              value={characterStatDetail.id}
-              onClick={(e) => handleSkillSelect(e, 'U')}
-            >
-              {characterStatDetail.ultSkill} (U)
-            </button>
+              <button
+                value={characterStatDetail.id}
+                onClick={(e) => handleSkillSelect(e, 'E')}
+              >
+                {'적이 행동할 차례입니다.'} (E)
+              </button>
+            </div>
           </div>
+        </div>
+        <div className="BuffDebuffInfo" style={{ width: '250px' }}>
           <p>버프</p>
           {characterStatDetail.buff.map((item) => {
             return (
@@ -1138,12 +1360,99 @@ function CombatDemo3() {
                       : 'block',
                 }}
               >
-                {item.buffDuration}턴 동안 {item.buffAmmount}만큼
-                {''} {item.buffStat}을 버프 - from {item.buffFrom}
+                <div>
+                  {item.buffDuration}턴 동안 {item.buffAmmount}만큼
+                </div>
+                <div>
+                  {item.buffStat}을 버프 - from {item.buffFrom}
+                </div>
               </div>
             );
           })}
           <p>디버프</p>
+          {characterStatDetail.debuff.map((item) => {
+            return (
+              <div
+                key={item.debuffNumber}
+                style={{
+                  display:
+                    item.debuffNumber === 0 || item.debuffDuration === 0
+                      ? 'none'
+                      : 'block',
+                }}
+              >
+                <div>
+                  {item.debuffDuration}턴 동안 {item.debuffAmmount}만큼
+                </div>
+                <div>
+                  {item.debuffStat}을 버프 - from {item.debuffFrom}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="miniView">
+          <div
+            style={{
+              height: '300px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ fontSize: '28pt' }}>Show Stage</div>
+            <div style={{ fontSize: '16pt' }}>Drag and Drop to Target</div>
+          </div>
+          <div style={{ display: 'flex' }}>
+            <div className="enemyMini" style={{ display: 'flex' }}>
+              {enemyLineReverse.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <img
+                      src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                      style={{
+                        border:
+                          turnInformation.resultSpeed[0].id === item.id
+                            ? '1px solid red'
+                            : '1px solid transparent',
+                        height: '130px',
+                        position: 'relative',
+                      }}
+                      alt={`${item.img}_mini`}
+                      onClick={() => onShowStatDetail(item.id)}
+                      onDrop={() => onDragDefender(item)}
+                      onDragOver={onDragOver}
+                    ></img>
+                  </div>
+                );
+              })}
+            </div>
+            <div style={{ width: '40px' }}></div>
+            <div className="ourMini" style={{ display: 'flex' }}>
+              {ourLine.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <img
+                      src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                      style={{
+                        border:
+                          turnInformation.resultSpeed[0].id === item.id
+                            ? '1px solid red'
+                            : '1px solid transparent',
+                        height: '130px',
+                        position: 'relative',
+                      }}
+                      alt={`${item.img}_mini`}
+                      onClick={() => onShowStatDetail(item.id)}
+                      onDragStart={() => onDragAttacker(item)}
+                      onDragOver={onDragOver}
+                    ></img>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
       <table
@@ -1152,7 +1461,7 @@ function CombatDemo3() {
       >
         <tbody>
           <tr style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
-            {frontLine.map((item) => {
+            {ourLine.map((item) => {
               return (
                 <td key={item.id}>
                   <div
@@ -1176,93 +1485,7 @@ function CombatDemo3() {
                       ></img>
                     </div>
                     <div>
-                      <div className="skillButton">
-                        <div>패시브: {item.passiveSkill}</div>
-                        <div>액티브1: {item.activeSkillFirst}</div>
-                        <div>액티브2: {item.activeSkillSecond}</div>
-                        <div>궁극기: {item.ultSkill}</div>
-                      </div>
-                      <div className="statBar">
-                        <p>
-                          체력: {item.HPcurrent}/{item.HPstat}
-                        </p>
-                        <p>호감도: {item.lovePointStack}</p>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              );
-            })}
-          </tr>
-          <tr style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
-            {midLine.map((item) => {
-              return (
-                <td key={item.id}>
-                  <div
-                    style={{
-                      display: 'flex',
-                    }}
-                  >
-                    <div
-                      style={{
-                        border:
-                          turnInformation.resultSpeed[0].id === item.id
-                            ? '2px solid red'
-                            : '2px solid transparent',
-                      }}
-                    >
-                      <img
-                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                        style={{ width: '120px', position: 'relative' }}
-                        alt={`${item.img}`}
-                        onClick={() => onShowStatDetail(item.id)}
-                      ></img>
-                    </div>
-                    <div>
-                      <div className="skillButton">
-                        <div>패시브: {item.passiveSkill}</div>
-                        <div>액티브1: {item.activeSkillFirst}</div>
-                        <div>액티브2: {item.activeSkillSecond}</div>
-                        <div>궁극기: {item.ultSkill}</div>
-                      </div>
-                      <div className="statBar">
-                        <p>
-                          체력: {item.HPcurrent}/{item.HPstat}
-                        </p>
-                        <p>호감도: {item.lovePointStack}</p>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              );
-            })}
-          </tr>
-          <tr style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
-            {backLine.map((item) => {
-              return (
-                <td key={item.id}>
-                  <div
-                    style={{
-                      display: 'flex',
-                    }}
-                  >
-                    <div
-                      style={{
-                        border:
-                          turnInformation.resultSpeed[0].id === item.id
-                            ? '2px solid red'
-                            : '2px solid transparent',
-                      }}
-                    >
-                      <img
-                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                        style={{ width: '120px', position: 'relative' }}
-                        alt={`${item.img}`}
-                        onClick={() => onShowStatDetail(item.id)}
-                      ></img>
-                    </div>
-                    <div>
-                      <div className="skillButton">
+                      <div className="skillInfo">
                         <div>패시브: {item.passiveSkill}</div>
                         <div>액티브1: {item.activeSkillFirst}</div>
                         <div>액티브2: {item.activeSkillSecond}</div>
@@ -1285,4 +1508,4 @@ function CombatDemo3() {
     </div>
   );
 }
-export default CombatDemo3;
+export default CombatDemo;
