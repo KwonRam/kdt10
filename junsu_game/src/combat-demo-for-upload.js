@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { dropNumber } from './utils/util';
 //덱 데이터를 불러들임
 //덱의 구성 - 5인 3열 3행 배치
 //캐릭터 이름, HP, 물리방어력, 마법방어력, 공격력, 속도(회피), 명중, 마법딜러인지 물리딜러인지, 부관인지 아닌지, 전투 시작 전 호감도, 캐릭터 이미지(링크)
@@ -1402,6 +1403,7 @@ function CombatDemoUpload() {
           });
           myDeckDataTempE.forEach((item) => {
             item.critical -= 0.05;
+            item.critical = dropNumber(item.critical);
           });
         } else if (currentCharacter.charName === '성준수') {
           //타겟팅 테스트
@@ -1522,8 +1524,6 @@ function CombatDemoUpload() {
                         <div className="skillButton">
                           <div>패시브: {item.passiveSkill}</div>
                           <div>액티브1: {item.activeSkillFirst}</div>
-                          <div>액티브2: {item.activeSkillSecond}</div>
-                          <div>궁극기: {item.ultSkill}</div>
                         </div>
                         <div className="statBar">
                           <p>
@@ -1631,18 +1631,6 @@ function CombatDemoUpload() {
               >
                 {characterStatDetail.activeSkillFirst} (A1)
               </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'A2')}
-              >
-                {characterStatDetail.activeSkillSecond} (A2)
-              </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'U')}
-              >
-                {characterStatDetail.ultSkill} (U)
-              </button>
             </div>
             <div
               style={{
@@ -1732,7 +1720,7 @@ function CombatDemoUpload() {
                           turnInformation.resultSpeed[0].id === item.id
                             ? '1px solid red'
                             : '1px solid transparent',
-                        height: '130px',
+                        height: '125px',
                         position: 'relative',
                       }}
                       alt={`${item.img}_mini`}
@@ -1756,7 +1744,7 @@ function CombatDemoUpload() {
                           turnInformation.resultSpeed[0].id === item.id
                             ? '1px solid red'
                             : '1px solid transparent',
-                        height: '130px',
+                        height: '125px',
                         position: 'relative',
                       }}
                       alt={`${item.img}_mini`}
@@ -1804,8 +1792,6 @@ function CombatDemoUpload() {
                       <div className="skillInfo">
                         <div>패시브: {item.passiveSkill}</div>
                         <div>액티브1: {item.activeSkillFirst}</div>
-                        <div>액티브2: {item.activeSkillSecond}</div>
-                        <div>궁극기: {item.ultSkill}</div>
                       </div>
                       <div className="statBar">
                         <p>
