@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 //맵 데이터를 불러들임
 //적 데이터를 불러들임
 
-function CombatDemoUpload() {
+function CombatDemo() {
   const [myDeckData, setMyDeckData] = useState([
     {
       id: 1,
@@ -1143,6 +1143,8 @@ function CombatDemoUpload() {
             );
             return turnInformation;
           } else {
+            const currentMR = currentDefender.magicResist;
+            currentDefender.magicResist = 0;
             [currentCharacter, currentDefender] = skillDamageCalculation(
               currentCharacter,
               0.2,
@@ -1151,6 +1153,8 @@ function CombatDemoUpload() {
               0.5,
               currentDefender
             );
+            currentDefender.magicResist = currentMR;
+            console.log('제대로 돌아오냐?', currentDefender.magicResist);
           }
         } else if (currentCharacter.charName === '전영중') {
           //스킬명: 최고의 디펜더
@@ -1824,4 +1828,4 @@ function CombatDemoUpload() {
     </div>
   );
 }
-export default CombatDemoUpload;
+export default CombatDemo;

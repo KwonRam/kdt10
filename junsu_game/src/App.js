@@ -4,9 +4,10 @@ import MoreSimpleDamage from './combat-demo-2';
 import CombatDemo3 from './combat-demo-3';
 import DamageCalculateDemo from './combat-demo-simplyfy';
 import CombatDemoUpload from './combat-demo-for-upload';
+import DeckSetting from './deck-setting-demo';
 
 function App() {
-  return <CombatDemoUpload />;
+  return <DeckSetting />;
 }
 
 export default App;
