@@ -642,79 +642,79 @@ function DeckSetting() {
   const [characterPositions, setCharacterPositions] = useState([
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 0,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 1,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 2,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 3,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 4,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 5,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 6,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 7,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 8,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 9,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 10,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 11,
       htmlElem: <div></div>,
     },
     {
       charNo: 0,
-      line: 'Buffer',
+      Line: 'Buffer',
       Position: 12,
       htmlElem: <div></div>,
     },
@@ -731,17 +731,23 @@ function DeckSetting() {
     } else {
       let updatedPositions = [...characterPositions];
       console.log(updatedPositions, ' updatedPositions');
-      const newPosition = {
+      let newPosition = {
         charNo: selectChar.charNo,
         Line: line,
         Position: position,
         htmlElem: <div></div>,
       };
-      let selectCharTemp = forReset;
+      let newPosition1 = newPosition;
+      let newPosition2 = newPosition;
+      let newPosition3 = newPosition;
+      let selectCharTemp = selectChar;
+      let selectCharTemp2 = selectChar;
+      let originalPosition = selectChar.Position;
       //선택한 캐릭터가 들어가려고 하는 슬롯 위치
       let updateTarget = updatedPositions.find(
         (elem) => elem.Position === position
       );
+      console.log('이게 뭐야 updateTarget ', updateTarget);
       let updateIndex = updatedPositions.indexOf(updateTarget);
       console.log('updateIndex ', updateIndex);
       //슬롯에 두번 들어가나 체크
@@ -753,28 +759,26 @@ function DeckSetting() {
       );
       console.log('중복 체크가 왜 안되냐고오오오 ', reduplicationCheck);
       if (reduplicationCheck.length < 1) {
+        selectCharTemp.Line = newPosition.Line;
+        selectCharTemp.Position = newPosition.Position;
+        selectCharTemp.onBattlefield = true;
+
         newPosition.htmlElem = (
           <img
             src={process.env.PUBLIC_URL + `/img/${selectChar.img}.png`}
             style={{ height: '140px' }}
             alt={`${selectChar.img}`}
             onClick={() => onShowStatDetail(selectChar.charNo)}
-            onDragStart={() => onDragCharacter(selectChar)}
+            onDragStart={() => onDragCharacter(selectCharTemp)}
           />
         );
-        console.log(position);
-        console.log(typeof position);
-
-        updatedPositions = updatedPositions.filter(
-          (i) => i.Position !== position
+        let index = updatedPositions.findIndex(
+          (i) => i.Position === selectCharTemp.Position
         );
-        console.log('updatedPositions', updatedPositions);
-        updatedPositions.push(newPosition);
+        updatedPositions[index] = newPosition;
         console.log(updatedPositions, ' updatedPositions');
         setCharacterPositions(updatedPositions);
-        selectCharTemp.Line = newPosition.Line;
-        selectCharTemp.Position = newPosition.Position;
-        selectCharTemp.onBattlefield = true;
+
         setSelectChar(selectCharTemp);
         let selectedIndex = myDeckData.findIndex((i) => i === selectChar);
         let myDeckDataCopy = myDeckData;
@@ -782,7 +786,13 @@ function DeckSetting() {
         setMyDeckData(myDeckDataCopy);
         return characterPositions;
       } else {
-        if (reduplicationCheck.length === 1) {
+        if (
+          reduplicationCheck.length === 1 &&
+          updateTarget.charNo !== selectChar.charNo &&
+          updateTarget.Line !== 'Buffer'
+        ) {
+          let myDeckDataCopy = myDeckData;
+          let characterPositionsCopy = characterPositions;
           console.log(reduplicationCheck.length, ' 1인지 체크');
           console.log(
             selectChar.charNo,
@@ -792,22 +802,154 @@ function DeckSetting() {
             updateTarget.charNo,
             ' 들어가려고 하는 슬롯에 있는 캐릭터 고유번호 체크'
           );
-          let switcherNum = selectChar.charNo;
-          let switcher = selectChar;
+          let switcherNum = selectChar.charNo; //들어가려고 하는 캐릭터의 고유번호
+          let switcher = selectChar; //들어가려고 하는 캐릭터
           let switcherIndex = characterPositions.findIndex(
             (i) => i.charNo === switcherNum
-          );
+          ); //들어가려고 하는 캐릭터 순서 배열의 인덱스
           console.log('들어가려고 하는 ', switcherNum, switcher, switcherIndex);
-          let slotOwnerNum = updateTarget.charNo;
+          let slotOwnerNum = updateTarget.charNo; //자리 주인의 고유번호
           let slotOwner = characterPositions.find(
             (i) => i.charNo === slotOwnerNum
-          );
+          ); //자리 주인이 차지하고 있는 자리
           let slotOwnerIndex = characterPositions.findIndex(
             (i) => i.charNo === slotOwnerNum
-          );
+          ); //자리 주인의 캐릭터 순서 배역의 인덱스
           console.log('자리 주인 ', slotOwnerNum, slotOwner, slotOwnerIndex);
-          let myDeckDataCopy = myDeckData;
-          let characterPositionsCopy = characterPositions;
+          newPosition1.Line = line; //들어갈놈
+          newPosition1.Position = position; //들어갈놈
+          selectCharTemp.Position = position;
+          selectCharTemp.Line = line;
+          newPosition1.htmlElem = (
+            <img
+              src={process.env.PUBLIC_URL + `/img/${selectChar.img}.png`}
+              style={{ height: '140px' }}
+              alt={`${selectChar.img}`}
+              onClick={() => onShowStatDetail(selectChar.charNo)}
+              onDragStart={() => onDragCharacter(selectCharTemp)}
+            />
+          ); //들어갈놈
+          //
+          newPosition2 = characterPositions[switcherIndex]; //바뀔자리주인
+          newPosition2.charNo = slotOwnerNum;
+          //
+          let switchedIndex = myDeckData.findIndex(
+            (i) => i.charNo === slotOwnerNum
+          ); //바뀔자리주인
+          console.log('이게뭐고 ', switchedIndex);
+          console.log('이게뭐고 2', myDeckData[switchedIndex]);
+          let slotOwnerTemp = myDeckData[switchedIndex];
+          slotOwnerTemp.Position = switcher.Position;
+          slotOwnerTemp.Line = switcher.Line;
+          newPosition2.htmlElem = (
+            <img
+              src={
+                process.env.PUBLIC_URL +
+                `/img/${myDeckData[switchedIndex].img}.png`
+              }
+              style={{ height: '140px' }}
+              alt={`${myDeckData[switchedIndex].img}`}
+              onClick={() => onShowStatDetail(myDeckData[switchedIndex].charNo)}
+              onDragStart={() => onDragCharacter(slotOwnerTemp)}
+            />
+          );
+          //
+          characterPositionsCopy[slotOwnerIndex] = newPosition1;
+          characterPositionsCopy[switcherIndex] = newPosition2;
+          console.log('slotOwnerIndex 검사~ ', slotOwnerIndex);
+          console.log('switcherIndex 검사~ ', switcherIndex);
+          console.log('뉴포지션1 검사~ ', newPosition1);
+          console.log('뉴포지션2 검사~ ', newPosition2);
+          setCharacterPositions(characterPositionsCopy);
+          console.log('이거 체크 좀 2 ', characterPositionsCopy);
+          //
+          //여기까진 됐고
+          //
+          let selectedIndex = myDeckData.findIndex((i) => i === selectChar);
+          //selectCharTemp.Line = line;
+          //selectCharTemp.Position = position;
+          console.log('selectedindex 검사합니다~ ', selectedIndex);
+          console.log('selectedindex 검사합니다~ ', myDeckData[selectedIndex]);
+          console.log('그래서 selectCharTemp가 먼데? ', selectCharTemp);
+          myDeckDataCopy[selectedIndex] = selectCharTemp;
+          //setSelectChar(selectCharTemp);
+          //console.log('switchedIndex 검사합니다~ ', selectCharTemp);
+          //console.log('switchedIndex 검사합니다~ ', myDeckData[selectCharTemp]);
+          slotOwnerTemp.Position = newPosition2.Position;
+          slotOwnerTemp.Line = newPosition2.Line;
+          console.log('그래서 slotOwnerTemp 먼데? ', slotOwnerTemp);
+          let changedIndex = myDeckData.findIndex(
+            (i) => i.charNo === slotOwnerTemp.charNo
+          );
+          myDeckDataCopy[changedIndex] = slotOwnerTemp;
+          console.log('changedIndex  검사합니다~ ', changedIndex);
+          console.log('changedIndex  검사합니다~ ', myDeckData[changedIndex]);
+          setMyDeckData(myDeckDataCopy);
+          console.log('이거 체크 좀 ', myDeckDataCopy);
+          setSelectChar(forReset);
+          return characterPositions;
+        } else if (
+          reduplicationCheck.length === 1 &&
+          updatedPositions.findIndex((i) => i.charNo === selectChar.charNo) !==
+            -1
+        ) {
+          console.log('여기 조건에 걸리는지 체크');
+          console.log('뉴포지션3 ', newPosition3);
+
+          //let selectCharTemp2 = selectChar;
+          //미리 받아두자...
+          //console.log('여기가 문제인게 틀림없어 2 ,', selectCharTemp2);
+          //let originalPosition = selectCharTemp2.Position;
+          let characterPositionsClone = characterPositions;
+          selectCharTemp2.Position = position;
+          selectCharTemp2.Line = line;
+          //console.log('여기가 문제인게 틀림없어 ,', selectCharTemp2);
+          newPosition3.htmlElem = (
+            <img
+              src={process.env.PUBLIC_URL + `/img/${selectChar.img}.png`}
+              style={{ height: '140px' }}
+              alt={`${selectChar.img}`}
+              onClick={() => onShowStatDetail(selectChar.charNo)}
+              onDragStart={() => onDragCharacter(selectCharTemp2)}
+            />
+          );
+
+          let updateIndex3 = characterPositionsClone.findIndex(
+            (i) => i.charNo === selectChar.charNo
+          );
+          console.log(
+            'originalPosition 이게 newposition3이 들어갈 자리,',
+            originalPosition
+          );
+          console.log('updateIndex3 이게 비워져야할 자리', updateIndex3);
+          characterPositionsClone[updateIndex3] = {
+            charNo: 0,
+            Line: 'Buffer',
+            Position: originalPosition,
+            htmlElem: <div></div>,
+          };
+          console.log(
+            '원래 자리 잘 초기화되었나 검사 ',
+            characterPositionsClone[updateIndex3]
+          );
+          characterPositionsClone[newPosition3.Position] = newPosition3;
+
+          console.log(
+            '새로운 자리 데이터 갱신되었나 검사',
+            characterPositionsClone[originalPosition]
+          );
+          setCharacterPositions(characterPositionsClone);
+          //여기까진 잘 되고
+          let myDeckDataCopy2 = myDeckData;
+          let index = myDeckData.findIndex(
+            (i) => i.charNo === selectChar.charNo
+          );
+          //console.log('뭐야 ㅁㅊ', index);
+          myDeckDataCopy2[index] = selectCharTemp2;
+          setMyDeckData(myDeckDataCopy2);
+          //console.log('이거 체크 좀 ', myDeckDataCopy2);
+          setSelectChar(forReset);
+          return characterPositions;
         } else {
           alert('중복 출전은 불가능합니다!');
           return characterPositions;
@@ -828,10 +970,15 @@ function DeckSetting() {
       console.log(e.target.parentNode.childNodes[2]);
       let line = e.target.parentNode.childNodes[0].data;
       let position = e.target.parentNode.childNodes[1].data;
-      characterPositions[position].htmlElem = <div></div>;
-      console.log(characterPositions[position].charNo);
+      position = Number(position);
+      let findPositionIndex = characterPositions.findIndex(
+        (i) => i.Position === position
+      );
+      console.log(findPositionIndex);
+      //characterPositions[findPositionIndex].htmlElem = <div></div>;
+      console.log(characterPositions[findPositionIndex].charNo);
       console.log('왜 선택이 안되지 ', selectChar);
-      updateCharacterPosition(line, Number(position), selectChar);
+      updateCharacterPosition(line, position, selectChar);
     }
   };
 
