@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const api = require('./routes/index');
-const PORT = process.env.PORT || 8000;
+//const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
-/*const cors = require('cors');
-app.use(cors());*/
+app.use(express.json());
+const cors = require('cors');
+app.use(cors());
 /*const IndexRouter = require('./routes/index');
 app.use('index', IndexRouter);*/
 /*app.get('/', (req, res) => {

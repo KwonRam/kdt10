@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express();
 /*const controller = require('../controller/Cmain');
 
 router.get('/', controller.index);
