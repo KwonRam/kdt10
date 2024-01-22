@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 //맵 데이터를 불러들임
 //적 데이터를 불러들임
 
-function CombatDemoTemp() {
+function CombatDemo() {
   const [myDeckData, setMyDeckData] = useState([
     {
       id: 1,
@@ -1828,4 +1828,4 @@ function CombatDemoTemp() {
     </div>
   );
 }
-export default CombatDemoTemp;
+export default CombatDemo;

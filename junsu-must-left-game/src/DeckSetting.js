@@ -1,7 +1,11 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import BattleStart from './BattleStart';
+import { useNavigate } from 'react-router-dom';
 
-function DeckSettingTemp() {
+function DeckSetting() {
+  const navigate = useNavigate();
   const [myDeckData, setMyDeckData] = useState([
     {
       charNo: 1,
@@ -982,6 +986,39 @@ function DeckSettingTemp() {
     }
   };
 
+  const submitDeckData = async (myDeckDataCopy) => {
+    let data = myDeckDataCopy;
+    axios({
+      method: 'post',
+      url: '/BattleStart',
+      data: data,
+    })
+      .then((res) => {
+        console.log('myDeck ', res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const onDeckSubmit = (e) => {
+    let inBattleCharList = [];
+    characterPositions.forEach((i) => {
+      i.charNo === 0 ? console.log('hehe') : inBattleCharList.push(i.charNo);
+    });
+    console.log(inBattleCharList);
+    let myDeckDataCopy = myDeckData.filter((i) =>
+      inBattleCharList.includes(i.charNo)
+    );
+    console.log(myDeckDataCopy);
+    let index = myDeckDataCopy.findIndex((i) => i.Position === 12);
+    if (index !== -1) {
+      myDeckDataCopy[index].isSixMan = true;
+    }
+    console.log(myDeckDataCopy);
+    submitDeckData(myDeckDataCopy);
+  };
+
   return (
     <div>
       <div
@@ -1282,7 +1319,8 @@ function DeckSettingTemp() {
           </div>
         </div>
       </div>
+      <button onClick={(e) => onDeckSubmit(e)}>전투 진입</button>
     </div>
   );
 }
-export default DeckSettingTemp;
+export default DeckSetting;

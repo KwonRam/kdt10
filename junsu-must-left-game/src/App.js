@@ -1,4 +1,3 @@
-import './App.css';
 import CombatDemoTemp from './combat-demo';
 import MoreSimpleDamage from './combat-demo-2';
 import CombatDemo3 from './combat-demo-3';
@@ -16,7 +15,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './Main';
 import NotFound from './NotFound';
 
-const App = () => {
+function App() {
+  // 서버에서 받은 데이터를 console로 찍어서 확인한다.
+  useEffect(() => {
+    axios
+      .get('/api/test')
+      .then((res) => console.log(res))
+      .catch();
+  });
   return (
     <div className="App">
       <BrowserRouter>
@@ -30,6 +36,6 @@ const App = () => {
       </BrowserRouter>
     </div>
   );
-};
+}
 
 export default App;

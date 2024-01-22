@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { dropNumber } from './utils/util';
 //덱 데이터를 불러들임
 //덱의 구성 - 5인 3열 3행 배치
 //캐릭터 이름, HP, 물리방어력, 마법방어력, 공격력, 속도(회피), 명중, 마법딜러인지 물리딜러인지, 부관인지 아닌지, 전투 시작 전 호감도, 캐릭터 이미지(링크)
@@ -7,7 +8,7 @@ import { useEffect } from 'react';
 //맵 데이터를 불러들임
 //적 데이터를 불러들임
 
-function CombatDemoTemp() {
+function CombatDemoUpload() {
   const [myDeckData, setMyDeckData] = useState([
     {
       id: 1,
@@ -1143,8 +1144,6 @@ function CombatDemoTemp() {
             );
             return turnInformation;
           } else {
-            const currentMR = currentDefender.magicResist;
-            currentDefender.magicResist = 0;
             [currentCharacter, currentDefender] = skillDamageCalculation(
               currentCharacter,
               0.2,
@@ -1153,8 +1152,6 @@ function CombatDemoTemp() {
               0.5,
               currentDefender
             );
-            currentDefender.magicResist = currentMR;
-            console.log('제대로 돌아오냐?', currentDefender.magicResist);
           }
         } else if (currentCharacter.charName === '전영중') {
           //스킬명: 최고의 디펜더
@@ -1406,6 +1403,7 @@ function CombatDemoTemp() {
           });
           myDeckDataTempE.forEach((item) => {
             item.critical -= 0.05;
+            item.critical = dropNumber(item.critical);
           });
         } else if (currentCharacter.charName === '성준수') {
           //타겟팅 테스트
@@ -1526,8 +1524,6 @@ function CombatDemoTemp() {
                         <div className="skillButton">
                           <div>패시브: {item.passiveSkill}</div>
                           <div>액티브1: {item.activeSkillFirst}</div>
-                          <div>액티브2: {item.activeSkillSecond}</div>
-                          <div>궁극기: {item.ultSkill}</div>
                         </div>
                         <div className="statBar">
                           <p>
@@ -1635,18 +1631,6 @@ function CombatDemoTemp() {
               >
                 {characterStatDetail.activeSkillFirst} (A1)
               </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'A2')}
-              >
-                {characterStatDetail.activeSkillSecond} (A2)
-              </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'U')}
-              >
-                {characterStatDetail.ultSkill} (U)
-              </button>
             </div>
             <div
               style={{
@@ -1736,7 +1720,7 @@ function CombatDemoTemp() {
                           turnInformation.resultSpeed[0].id === item.id
                             ? '1px solid red'
                             : '1px solid transparent',
-                        height: '130px',
+                        height: '125px',
                         position: 'relative',
                       }}
                       alt={`${item.img}_mini`}
@@ -1760,7 +1744,7 @@ function CombatDemoTemp() {
                           turnInformation.resultSpeed[0].id === item.id
                             ? '1px solid red'
                             : '1px solid transparent',
-                        height: '130px',
+                        height: '125px',
                         position: 'relative',
                       }}
                       alt={`${item.img}_mini`}
@@ -1808,8 +1792,6 @@ function CombatDemoTemp() {
                       <div className="skillInfo">
                         <div>패시브: {item.passiveSkill}</div>
                         <div>액티브1: {item.activeSkillFirst}</div>
-                        <div>액티브2: {item.activeSkillSecond}</div>
-                        <div>궁극기: {item.ultSkill}</div>
                       </div>
                       <div className="statBar">
                         <p>
@@ -1828,4 +1810,4 @@ function CombatDemoTemp() {
     </div>
   );
 }
-export default CombatDemoTemp;
+export default CombatDemoUpload;
