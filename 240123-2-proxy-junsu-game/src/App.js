@@ -1,34 +1,42 @@
+import CombatDemoTemp from './combat-demo';
+import MoreSimpleDamage from './combat-demo-2';
+import CombatDemo3 from './combat-demo-3';
+import DamageCalculateDemo from './combat-demo-simplyfy';
+import CombatDemoUpload from './combat-demo-for-upload';
+import DeckSettingTemp from './deck-setting-demo';
+import DeckSetting from './DeckSetting';
+import CombatDemo from './CombatDemo';
+import BattleStart from './BattleStart';
 import React, { Component } from 'react';
-import './App.css';
+// axios 추가
 import axios from 'axios';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Main from './Main';
+import NotFound from './NotFound';
+import { useEffect } from 'react';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      host: '',
-    };
-  }
+function App() {
+  useEffect(() => {
+    axios
+      .get('/api/test')
+      .then((res) => console.log(res))
+      .catch();
+  });
 
-  componentDidMount() {
-    this._getHost();
-  }
-
-  _getHost = async () => {
-    const res = await axios.get('/api/host');
-    this.setState({ host: res.data.host });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h3>
-          {' '}
-          Welcome to <u> {this.state.host} </u> Blog!{' '}
-        </h3>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/DeckSetting" element={<DeckSetting />}></Route>
+          <Route path="/CombatDemo" element={<CombatDemo />}></Route>
+          <Route path="/BattleStart" element={<BattleStart />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
