@@ -12,6 +12,9 @@ const Main = (props) => {
         <Link to="/CombatDemo">
           <li>전투 데모</li>
         </Link>
+        <Link to="/EnemyPage">
+          <li>EnemyPage</li>
+        </Link>
       </ul>
     </div>
   );

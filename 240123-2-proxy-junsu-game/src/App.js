@@ -6,6 +6,7 @@ import CombatDemoUpload from './combat-demo-for-upload';
 import DeckSettingTemp from './deck-setting-demo';
 import DeckSetting from './DeckSetting';
 import CombatDemo from './CombatDemo';
+import EnemyPage from './EnemyDeck';
 import BattleStart from './BattleStart';
 import React, { Component } from 'react';
 // axios 추가
@@ -31,7 +32,7 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/DeckSetting" element={<DeckSetting />}></Route>
           <Route path="/CombatDemo" element={<CombatDemo />}></Route>
-          <Route path="/BattleStart" element={<BattleStart />}></Route>
+          <Route path="/EnemyPage" element={<EnemyPage />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

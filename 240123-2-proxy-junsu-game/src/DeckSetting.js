@@ -990,11 +990,12 @@ function DeckSetting() {
     let data = myDeckDataCopy;
     axios({
       method: 'post',
-      url: '/BattleStart',
+      url: '/api/BattleStart',
       data: data,
     })
       .then((res) => {
         console.log('myDeck ', res.data);
+        //navigate.push('/new-page');
       })
       .catch((err) => {
         console.log(err);
