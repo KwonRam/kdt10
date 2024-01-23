@@ -4,6 +4,7 @@ const cors = require('cors');
 app.use(cors());
 const PORT = process.env.PORT || 4000;
 
+const api = require('./routes/index');
 app.use('/api', api);
 
 app.listen(PORT, () => {

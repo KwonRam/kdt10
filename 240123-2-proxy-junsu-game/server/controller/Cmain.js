@@ -13,7 +13,7 @@ exports.combat_demo = (req, res) => {
   res.render('/CombatDemo');
   console.log('render CombatDemo');
 };
-/*exports.battle_start = (req, res) => {
+exports.battle_start = (req, res) => {
   res.render('/BattleStart');
   console.log('render BattleStart');
-};*/
+};
