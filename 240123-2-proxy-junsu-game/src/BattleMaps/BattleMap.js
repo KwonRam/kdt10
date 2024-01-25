@@ -1,23 +1,33 @@
 import React from 'react';
-import { BrowserRouter, Route, useParams } from 'react-router-dom';
-import BattleMaps from './mapData.json';
-import BattleMapList from './BattleMapList';
+import { Link } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
+import BattleMaps from './mapData';
 import BattleMapDetail from './BattleMapDetail';
 
 function BattleMap() {
-  let { map } = useParams();
-  if (map === undefined) {
-    map = '';
-  }
-  console.log(BattleMaps);
-  console.log(map);
   return (
     <div>
       <h1>BattleMap</h1>
-      <BrowserRouter>
-        <Route exact path={map} element={<BattleMapList />} />
-        <Route path={`${map}/:id`} element={<BattleMapDetail />} />
-      </BrowserRouter>
+      <ul>
+        <Link to="/BattleMap/chapter1/1">
+          <li>1장 1챕</li>
+        </Link>
+        <Link to="/BattleMap/chapter1/2">
+          <li>1장 2챕</li>
+        </Link>
+        <Link to="/BattleMap/chapter1/3">
+          <li>1장 3챕</li>
+        </Link>
+        <Link to="/BattleMap/chapter2/1">
+          <li>2장 1챕</li>
+        </Link>
+        <Link to="/BattleMap/chapter2/2">
+          <li>2장 2챕</li>
+        </Link>
+        <Link to="/BattleMap/chapter2/3">
+          <li>2장 3챕</li>
+        </Link>
+      </ul>
     </div>
   );
 }

@@ -1,17 +1,19 @@
 import React from 'react';
-import BattleMaps from './mapData.json';
+import BattleMaps from './mapData';
 import { useParams } from 'react-router-dom';
 
 function BattleMapDetail() {
-  let { map } = useParams();
-  const BattleMap = BattleMaps.find((i) => i.id === map.id);
+  let { chapter, ep } = useParams();
+  console.log(chapter, ep);
+  //console.log(BattleMaps);
+  //console.log(BattleMaps.BattleMaps);
+  const BattleMap = BattleMaps.BattleMaps.find((i) => i.chapter === chapter);
   return (
     <div>
       <h2>User Detail</h2>
-      <dt>BattleMaps id</dt>
-      <dd>{BattleMap.id}</dd>
-      <dt>name</dt>
-      <dd>{BattleMap.name}</dd>
+      <p>Battle Chapter {chapter} </p>
+      <p>Battle Episode {ep} </p>
+      <p>name {BattleMap.name}</p>
     </div>
   );
 }
