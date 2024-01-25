@@ -15,6 +15,9 @@ const Main = (props) => {
         <Link to="/EnemyPage">
           <li>EnemyPage</li>
         </Link>
+        <Link to="/BattleMap">
+          <li>BattleMap</li>
+        </Link>
       </ul>
     </div>
   );

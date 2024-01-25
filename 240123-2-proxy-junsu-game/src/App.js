@@ -8,6 +8,7 @@ import DeckSetting from './DeckSetting';
 import CombatDemo from './CombatDemo';
 import EnemyPage from './EnemyDeck';
 import BattleStart from './BattleStart';
+import BattleMap from './BattleMaps/BattleMap';
 import React, { Component } from 'react';
 // axios 추가
 import axios from 'axios';
@@ -29,10 +30,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Main />}></Route>
+          <Route exact path="/" element={<Main />}></Route>
           <Route path="/DeckSetting" element={<DeckSetting />}></Route>
           <Route path="/CombatDemo" element={<CombatDemo />}></Route>
           <Route path="/EnemyPage" element={<EnemyPage />}></Route>
+          <Route path="/BattleMap" element={<BattleMap />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
