@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
   config
 );
 
-const MyDeckforBattle = require('./DeckforBattle')(sequelize, Sequelize);
+//const MyDeckforBattle = require('./DeckforBattle')(sequelize, Sequelize);
 /* {
       charNo: 1,
       id: 0,

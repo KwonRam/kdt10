@@ -1,6 +1,11 @@
 module.exports = {
   BattleMaps: [
     {
+      chapter: 'chapter0',
+      id: '0',
+      name: 'test-map',
+    },
+    {
       chapter: 'chapter1',
       id: '1',
       name: 'map1-1',

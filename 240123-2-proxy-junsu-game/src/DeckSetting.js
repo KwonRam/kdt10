@@ -2,10 +2,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import BattleStart from './BattleStart';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function DeckSetting() {
   const navigate = useNavigate();
+  let location = useLocation();
+  //console.log('왜안돼', location.state.content);
   const [myDeckData, setMyDeckData] = useState([
     {
       charNo: 1,
@@ -995,7 +999,8 @@ function DeckSetting() {
     })
       .then((res) => {
         console.log('myDeck ', res.data);
-        //navigate.push('/new-page');
+        const content = res.data;
+        navigate('/CombatDemo' + content, { state: { content } });
       })
       .catch((err) => {
         console.log(err);
@@ -1018,6 +1023,25 @@ function DeckSetting() {
     }
     console.log(myDeckDataCopy);
     submitDeckData(myDeckDataCopy);
+  };
+
+  const submitDeckData2 = () => {
+    let inBattleCharList = [];
+    characterPositions.forEach((i) => {
+      i.charNo === 0 ? console.log('hehe') : inBattleCharList.push(i.charNo);
+    });
+    console.log(inBattleCharList);
+    let myDeckDataCopy = myDeckData.filter((i) =>
+      inBattleCharList.includes(i.charNo)
+    );
+    console.log(myDeckDataCopy);
+    let index = myDeckDataCopy.findIndex((i) => i.Position === 12);
+    if (index !== -1) {
+      myDeckDataCopy[index].isSixMan = true;
+    }
+    console.log(myDeckDataCopy);
+
+    return myDeckDataCopy;
   };
 
   return (
@@ -1321,6 +1345,12 @@ function DeckSetting() {
         </div>
       </div>
       <button onClick={(e) => onDeckSubmit(e)}>전투 진입</button>
+      <Link
+        to={'/BattleMap/chapter0/0'}
+        state={{ myDeckData: submitDeckData2() }}
+      >
+        <button>전투 진입 2</button>
+      </Link>
     </div>
   );
 }
