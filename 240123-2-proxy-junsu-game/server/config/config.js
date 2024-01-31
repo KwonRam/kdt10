@@ -1,13 +1,28 @@
-require('dotenv').config();
+const Sequelize = require('sequelize');
+const mysql = require('mysql2');
+const dotenv = require('dotenv');
+dotenv.config();
 const env = process.env;
 
-const development = {
+/*const development = {
   username: env.DB_USERNAME,
   password: env.DB_PASSWORD,
   database: env.DB_DATABASE,
   host: env.DB_HOST,
-  dialect: "mysql",
-  timezone: "+09:00"
+  dialect: 'mysql',
+  timezone: '+09:00',
+};
+
+module.exports = { development };*/
+
+const development = {
+  user: 'user',
+  password: '1234',
+  database: 'kdt',
+  host: '127.0.0.1',
+  dialect: 'mysql',
+  port: 3306, // MySQL이 다른 포트에서 실행 중이면 이 부분을 수정하세요.
+  timezone: '+09:00',
 };
 
 module.exports = { development };

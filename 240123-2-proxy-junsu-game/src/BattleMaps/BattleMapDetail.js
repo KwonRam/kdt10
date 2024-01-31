@@ -27,7 +27,7 @@ function BattleMapDetail() {
   useEffect(() => {
     // EnemyDeckData를 가져 오는 API 엔드 포인트가 있다고 가정합니다.
     axios
-      .get(`/api/enemyDeckData?chapter=${chapter}&ep=${ep}`)
+      .get(`/api/enemyDeck?chapter=${chapter}&ep=${ep}`)
       .then((response) => {
         const enemyDeckData = response.data; // API 응답 구조에 따라 조정하세요.
         // 가져온 데이터로 상태를 업데이트합니다.

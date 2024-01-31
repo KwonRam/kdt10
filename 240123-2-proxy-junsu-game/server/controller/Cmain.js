@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { Sequelize, EnemyDeck } = require('../models/Main');
+const { EnemyDeck, sequelize } = require('../models/Main');
 const Main = require('../models/Main');
 /*exports.index = (req, res) => {
   res.render('/');
@@ -19,17 +19,26 @@ exports.battle_start = (req, res) => {
   //res.render('battlePage', { characters });
 };
 
-exports.enemy_deck = (req, res) => {
+//const { EnemyDeck } = require('../models'); // Sequelize 모델을 불러옵니다.
+
+exports.enemy_deck = async (req, res) => {
   const { chapter, ep } = req.query;
 
-  // MySQL 쿼리
-  const sql = 'SELECT * FROM EnemyDeck WHERE chapter = ? AND ep = ?';
-  EnemyDeck.query(sql, [chapter, ep], (err, result) => {
-    if (err) {
-      console.error('Error fetching EnemyDeckData:', err);
-      res.status(500).send('Internal Server Error');
-    } else {
-      res.json(result);
-    }
-  });
+  console.log('chapter ', chapter, 'ep ', ep);
+
+  try {
+    console.log('EnemyDeck find all');
+    const result = await EnemyDeck.findAll({
+      where: {
+        chapter: 0,
+        ep: 0,
+      },
+    });
+
+    // 결과를 클라이언트에게 반환
+    res.json(result);
+  } catch (err) {
+    console.error('Error fetching enemy deck data:', err);
+    res.status(500).send('Internal Server Error');
+  }
 };

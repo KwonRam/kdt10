@@ -9,6 +9,9 @@ function BattleMap() {
     <div>
       <h1>BattleMap</h1>
       <ul>
+        <Link to="/BattleMap/chapter0/0">
+          <li>0장 0챕(테스트 맵)</li>
+        </Link>
         <Link to="/BattleMap/chapter1/1">
           <li>1장 1챕</li>
         </Link>
