@@ -7,7 +7,7 @@ import DeckSettingTemp from './deck-setting-demo';
 import DeckSetting from './DeckSetting';
 import CombatDemo from './CombatDemo';
 import EnemyPage from './EnemyDeck';
-import BattleStart from './BattleStart';
+import BattlePrep from './BattleMaps/BattlePrep';
 import BattleMap from './BattleMaps/BattleMap';
 import BattleMapDetail from './BattleMaps/BattleMapDetail';
 
@@ -38,6 +38,7 @@ function App() {
           <Route path="/EnemyPage" element={<EnemyPage />}></Route>
           <Route path="/BattleMap" element={<BattleMap />}></Route>
           <Route path="/BattleMap/:chapter/:ep" element={<BattleMapDetail />} />
+          <Route path="/BattlePrep/:chapter/:ep" element={<BattlePrep />} />
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

@@ -54,7 +54,6 @@ function BattleMapDetail() {
       <h2>User Detail</h2>
       <p>Battle Chapter {chapter} </p>
       <p>Battle Episode {ep} </p>
-      <p>name {BattleMap.name}</p>
     </div>
   );
 }
