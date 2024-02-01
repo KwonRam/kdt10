@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const dotenv = require('dotenv');
 dotenv.config();
+const db = {};
 
 const config = require('../config/config')['development'];
 const sequelize = new Sequelize(
@@ -9,33 +10,39 @@ const sequelize = new Sequelize(
   config.password,
   {
     ...config,
-    port: 3306, // MySQL이 다른 포트에서 실행 중이면 이 부분을 수정하세요.
   }
 );
 
-const EnemyDeck = sequelize.define('EnemyDeck', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+const EnemyDeck = sequelize.define(
+  'enemydeck',
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    chapter: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    ep: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    data: {
+      type: DataTypes.JSON,
+      allowNull: false,
+    },
   },
-  chapter: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  ep: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  data: {
-    type: DataTypes.JSON,
-    allowNull: false,
-  },
-});
+  {
+    timestamps: false,
+  }
+);
 
-// 모델을 데이터베이스에 동기화 (프로덕션에서는 사용하지 말 것)
-sequelize.sync({ force: true }).then(() => {
-  console.log('EnemyDeck 모델이 동기화되었습니다.');
-});
+// Associate function, if needed, can be added here
 
-module.exports = { EnemyDeck, sequelize };
+// Add the EnemyDeck model to the db object
+db.EnemyDeck = EnemyDeck;
+
+// Export db, sequelize, and Sequelize
+module.exports = { db, sequelize, Sequelize };

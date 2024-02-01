@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { EnemyDeck, sequelize } = require('../models/Main');
+const { EnemyDeck, sequelize, db, Sequelize } = require('../models/Main');
 const Main = require('../models/Main');
 /*exports.index = (req, res) => {
   res.render('/');
@@ -25,13 +25,19 @@ exports.enemy_deck = async (req, res) => {
   const { chapter, ep } = req.query;
 
   console.log('chapter ', chapter, 'ep ', ep);
+  console.log('chapter type ', typeof chapter, 'ep type ', typeof ep);
+  console.log('chapter split ', chapter.split(''));
+  console.log('chapter split ', chapter.split('chapter'));
+  const aTemp = chapter.split('chapter')[1];
+  const a = Number(aTemp);
+  const b = Number(ep);
 
   try {
     console.log('EnemyDeck find all');
-    const result = await EnemyDeck.findAll({
+    const result = await db.EnemyDeck.findAll({
       where: {
-        chapter: 0,
-        ep: 0,
+        chapter: a,
+        ep: b,
       },
     });
 

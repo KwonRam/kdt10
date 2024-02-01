@@ -16,10 +16,10 @@ const env = process.env;
 module.exports = { development };*/
 
 const development = {
-  user: 'user',
-  password: '1234',
-  database: 'kdt',
-  host: '127.0.0.1',
+  username: 'root',
+  password: 'Cslikea%d10',
+  database: 'junsu_game_db',
+  host: 'localhost',
   dialect: 'mysql',
   port: 3306, // MySQL이 다른 포트에서 실행 중이면 이 부분을 수정하세요.
   timezone: '+09:00',

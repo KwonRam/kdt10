@@ -29,7 +29,15 @@ function BattleMapDetail() {
     axios
       .get(`/api/enemyDeck?chapter=${chapter}&ep=${ep}`)
       .then((response) => {
-        const enemyDeckData = response.data; // API 응답 구조에 따라 조정하세요.
+        console.log('res.data.testmap ', response.data.testmap);
+        console.log('res.data[0] ', response.data[0]);
+        console.log('res.data[0].data ', response.data[0].data);
+        console.log('res.data[0].data.testmap ', response.data[0].data.testmap);
+        console.log(
+          'res.data[0].data.testmap[0] ',
+          response.data[0].data.testmap[0]
+        );
+        const enemyDeckData = response.data[0].data.testmap; // API 응답 구조에 따라 조정하세요.
         // 가져온 데이터로 상태를 업데이트합니다.
         // 예를 들어, enemyDeckData가 배열인 경우
         setEnemyDeckData(enemyDeckData);
