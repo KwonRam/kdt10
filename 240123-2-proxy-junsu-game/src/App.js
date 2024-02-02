@@ -31,6 +31,7 @@ function App() {
           <Route path="/DeckSetting" element={<DeckSetting />}></Route>
           <Route path="/CombatDemo" element={<CombatDemo />}></Route>
           <Route path="/CombatDemo2" element={<CombatDemo2 />}></Route>
+          <Route path="/StoryDemo" element={<StoryDemo />}></Route>
           <Route path="/StoryDemo/:chapter/:ep" element={<StoryDemo />}></Route>
           <Route path="/EnemyPage" element={<EnemyPage />}></Route>
           <Route path="/BattleMap" element={<BattleMap />}></Route>
