@@ -47,7 +47,7 @@ function BattleMapDetail() {
       });
   }, [chapter, ep]);
 
-  const BattleMap = BattleMaps.BattleMaps.find((i) => i.chapter === chapter);
+  //const BattleMap = BattleMaps.BattleMaps.find((i) => i.chapter === chapter);
 
   return (
     <div>

@@ -6,6 +6,8 @@ import CombatDemoUpload from './combat-demo-for-upload';
 import DeckSettingTemp from './deck-setting-demo';
 import DeckSetting from './DeckSetting';
 import CombatDemo from './CombatDemo';
+import CombatDemo2 from './CombatDemo2';
+import StoryDemo from './StoryDemo';
 import EnemyPage from './EnemyDeck';
 import BattlePrep from './BattleMaps/BattlePrep';
 import BattleMap from './BattleMaps/BattleMap';
@@ -21,13 +23,6 @@ import NotFound from './NotFound';
 import { useEffect } from 'react';
 
 function App() {
-  useEffect(() => {
-    axios
-      .get('/api/test')
-      .then((res) => console.log(res))
-      .catch();
-  });
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -35,6 +30,8 @@ function App() {
           <Route exact path="/" element={<Main />}></Route>
           <Route path="/DeckSetting" element={<DeckSetting />}></Route>
           <Route path="/CombatDemo" element={<CombatDemo />}></Route>
+          <Route path="/CombatDemo2" element={<CombatDemo2 />}></Route>
+          <Route path="/StoryDemo/:chapter/:ep" element={<StoryDemo />}></Route>
           <Route path="/EnemyPage" element={<EnemyPage />}></Route>
           <Route path="/BattleMap" element={<BattleMap />}></Route>
           <Route path="/BattleMap/:chapter/:ep" element={<BattleMapDetail />} />
