@@ -32,37 +32,50 @@ function StoryDemo() {
   let scene = [
     {
       id: 1,
-      charName: '준수',
-      Portrait: '/img/portrait/junsu/defalt.png',
-      script: '와 좆됐다',
-      backGround: '/img/backGround/lake.jpeg',
+      charSpeakingName: '준수',
+      leftPortrait: '/img/portrait/junsu/defalt.png',
+      rightPortrait: '/img/portrait/sangho/comic.png',
+      script: '와 X됐다.',
+      backGround: '/img/backGround/lake.png',
     },
     {
       id: 2,
-      charName: '현성',
-      Portrait: '/img/portrait/hyunsung/defalt.png',
-      script: '와 그러는데?',
-      backGround: '/img/backGround/lake.jpeg',
+      charSpeakingName: '준수',
+      leftPortrait: '/img/portrait/junsu/defalt.png',
+      rightPortrait: '/img/portrait/sangho/comic.png',
+      script: '이딴 새끼랑 또...',
+      backGround: '/img/backGround/lake.png',
     },
     {
       id: 3,
-      charName: '상호',
-      Portrait: '/img/portrait/hyunsung/comic.png',
-      script: '제 흑염룡이 나올 때군요?',
-      backGround: '/img/backGround/lake.jpeg',
+      charSpeakingName: '준수',
+      leftPortrait: '/img/portrait/junsu/defalt.png',
+      rightPortrait: '/img/portrait/hyunsung/defalt.png',
+      script: '아니 선생님은 또 저 새끼 말을 진지하게 들어주고 계시네.',
+      backGround: '/img/backGround/lake.png',
     },
     {
       id: 4,
-      charName: '병찬',
-      Portrait: '/img/portrait/byeongchan/ahha.png',
-      script: '흑염룡?',
-      backGround: '/img/backGround/lake.jpeg',
+      charSpeakingName: '준수',
+      leftPortrait: '/img/portrait/junsu/defalt.png',
+      rightPortrait: '/img/portrait/sangho/comic.png',
+      script: '약점이 보인다는 게 말이야 방구야?',
+      backGround: '/img/backGround/lake.png',
     },
   ];
-
+  const [i, setI] = useState(0);
+  const onChangeIndex = () => {
+    //event.preventDefault();
+    setI(i + 1);
+  };
+  useEffect(() => {
+    console.log('useEffect i ', i);
+  }, [i]);
+  console.log(i);
   return (
     <div>
       <div
+        onClick={onChangeIndex}
         className="BackGround"
         style={{
           width: '100vw',
@@ -73,21 +86,65 @@ function StoryDemo() {
           justifyContent: 'center',
         }}
       >
-        <div className="PortraitBox">
+        <div
+          className="PortraitBox"
+          style={{
+            width: '90vw',
+            zIndex: '9',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
           <img
-            src="/img/portrait/junsu/defalt.png"
-            style={{ height: '720px' }}
+            src={process.env.PUBLIC_URL + `${scene[i].leftPortrait}`}
+            style={{ height: '660px' }}
+          ></img>
+          <img
+            src={process.env.PUBLIC_URL + `${scene[i].rightPortrait}`}
+            style={{ height: '660px' }}
           ></img>
         </div>
         <div
           className="StoryBox"
-          style={{ backgroundColor: 'navy', zIndex: '10' }}
+          style={{
+            backgroundColor: '#22283d',
+            zIndex: '10',
+            width: '90vw',
+            height: '24vh',
+            position: 'absolute',
+            bottom: '5vh',
+            borderTop: '3px solid black',
+          }}
         >
-          <div className="CharName">준수</div>
-          <div className="StoryScript">와 좆됐다</div>
+          <div
+            className="CharName"
+            style={{
+              color: 'white',
+              paddingLeft: '240px',
+              paddingTop: '40px',
+              fontSize: '26px',
+              fontFamily: 'NanumSquareNeo-Variable',
+            }}
+          >
+            {scene[i].charSpeakingName}
+          </div>
+          <div
+            className="StoryScript"
+            style={{
+              color: 'white',
+              paddingLeft: '240px',
+              paddingTop: '30px',
+              fontSize: '20px',
+              fontFamily: 'NanumSquareNeo-Variable',
+            }}
+          >
+            {scene[i].script}
+          </div>
         </div>
         <img
-          src="/img/backGround/lake.jpeg"
+          src={process.env.PUBLIC_URL + `${scene[i].backGround}`}
           style={{
             position: 'absolute',
             width: '90vw',
