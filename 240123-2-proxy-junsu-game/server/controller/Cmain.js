@@ -1,5 +1,11 @@
 const axios = require('axios');
-const { EnemyDeck, sequelize, db, Sequelize } = require('../models/Main');
+const {
+  EnemyDeck,
+  StoryScript,
+  sequelize,
+  db,
+  Sequelize,
+} = require('../models/Main');
 const Main = require('../models/Main');
 /*exports.index = (req, res) => {
   res.render('/');
@@ -49,7 +55,7 @@ exports.enemy_deck = async (req, res) => {
   }
 };
 
-/*exports.load_story_script = async (req, res) => {
+exports.load_story_script = async (req, res) => {
   const { chapter, ep } = req.query;
 
   console.log('chapter ', chapter, 'ep ', ep);
@@ -62,7 +68,7 @@ exports.enemy_deck = async (req, res) => {
 
   try {
     console.log('EnemyDeck find all');
-    const result = await db.EnemyDeck.findAll({
+    const result = await db.StoryScript.findAll({
       where: {
         chapter: a,
         ep: b,
@@ -72,7 +78,7 @@ exports.enemy_deck = async (req, res) => {
     // 결과를 클라이언트에게 반환
     res.json(result);
   } catch (err) {
-    console.error('Error fetching enemy deck data:', err);
+    console.error('Error fetching story script data:', err);
     res.status(500).send('Internal Server Error');
   }
-};*/
+};

@@ -11,6 +11,8 @@ router.get('/test', (req, res) => {
 
 router.get('/enemyDeck', controller.enemy_deck);
 
+router.get('/storyScript', controller.load_story_script);
+
 //router.get('/', controller.index);
 //router.get('/DeckSetting', controller.deck_setting);
 //router.get('/CombatDemo', controller.combat_demo);

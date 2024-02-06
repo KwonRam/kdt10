@@ -12,24 +12,31 @@ import './CSS/reset.css';
 //적 데이터를 불러들임
 
 function StoryDemo() {
-  /*let { chapter, ep } = useParams();
-  console.log(chapter, ep);
+  const [scene, setScene] = useState([]);
 
   useEffect(() => {
     // EnemyDeckData를 가져 오는 API 엔드 포인트가 있다고 가정합니다.
     axios
       .get(`/api/enemyDeck?chapter=${chapter}&ep=${ep}`)
       .then((response) => {
+        console.log('res.data.testmap ', response.data.script);
         console.log('res.data[0] ', response.data[0]);
-
+        console.log('res.data[0].data ', response.data[0].data);
+        console.log('res.data[0].data.testmap ', response.data[0].data.script);
+        console.log(
+          'res.data[0].data.testmap[0] ',
+          response.data[0].data.script[0]
+        );
+        const scriptData = response.data[0].data.script; // API 응답 구조에 따라 조정하세요.
         // 가져온 데이터로 상태를 업데이트합니다.
         // 예를 들어, enemyDeckData가 배열인 경우
+        setScene(scriptData);
       })
       .catch((error) => {
         console.error('EnemyDeckData를 가져 오는 중 오류 발생:', error);
       });
-  }, [chapter, ep]);*/
-  let scene = [
+  }, [chapter, ep]);
+  /*let scene = [
     {
       id: 1,
       charSpeakingName: '준수',
@@ -62,7 +69,7 @@ function StoryDemo() {
       script: '약점이 보인다는 게 말이야 방구야?',
       backGround: '/img/backGround/lake.png',
     },
-  ];
+  ];*/
   const [i, setI] = useState(0);
   const onChangeIndex = () => {
     //event.preventDefault();
@@ -98,11 +105,19 @@ function StoryDemo() {
           }}
         >
           <img
-            src={process.env.PUBLIC_URL + `${scene[i].leftPortrait}`}
+            src={
+              i >= scene.length
+                ? process.env.PUBLIC_URL + `${scene[i].leftPortrait}`
+                : process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+            }
             style={{ height: '660px' }}
           ></img>
           <img
-            src={process.env.PUBLIC_URL + `${scene[i].rightPortrait}`}
+            src={
+              i >= scene.length
+                ? process.env.PUBLIC_URL + `${scene[i].rightPortrait}`
+                : process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+            }
             style={{ height: '660px' }}
           ></img>
         </div>
@@ -128,7 +143,7 @@ function StoryDemo() {
               fontFamily: 'NanumSquareNeo-Variable',
             }}
           >
-            {scene[i].charSpeakingName}
+            {i >= scene.length ? scene[i].charSpeakingName : ''}
           </div>
           <div
             className="StoryScript"
@@ -140,11 +155,15 @@ function StoryDemo() {
               fontFamily: 'NanumSquareNeo-Variable',
             }}
           >
-            {scene[i].script}
+            {i >= scene.length ? scene[i].script : ''}
           </div>
         </div>
         <img
-          src={process.env.PUBLIC_URL + `${scene[i].backGround}`}
+          src={
+            i >= scene.length
+              ? process.env.PUBLIC_URL + `${scene[i].backGround}`
+              : process.env.PUBLIC_URL + `${scene[scene.length - 1].backGround}`
+          }
           style={{
             position: 'absolute',
             width: '90vw',
