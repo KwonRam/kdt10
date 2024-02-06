@@ -9,25 +9,25 @@ function BattleMap() {
     <div>
       <h1>BattleMap</h1>
       <ul>
-        <Link to="/BattlePrep/chapter0/0">
+        <Link to="/StoryDemo/chapter0/0">
           <li>0장 0챕(테스트 맵)</li>
         </Link>
-        <Link to="/BattlePrep/chapter1/1">
+        <Link to="/StoryDemo/chapter1/1">
           <li>1장 1챕</li>
         </Link>
-        <Link to="/BattlePrepchapter1/2">
+        <Link to="/StoryDemo/chapter1/2">
           <li>1장 2챕</li>
         </Link>
-        <Link to="/BattlePrep/chapter1/3">
+        <Link to="/StoryDemo/chapter1/3">
           <li>1장 3챕</li>
         </Link>
-        <Link to="/BattlePrep/chapter2/1">
+        <Link to="/StoryDemo/chapter2/1">
           <li>2장 1챕</li>
         </Link>
-        <Link to="/BattlePrep/chapter2/2">
+        <Link to="/StoryDemo/chapter2/2">
           <li>2장 2챕</li>
         </Link>
-        <Link to="/BattlePrep/chapter2/3">
+        <Link to="/StoryDemo/chapter2/3">
           <li>2장 3챕</li>
         </Link>
       </ul>

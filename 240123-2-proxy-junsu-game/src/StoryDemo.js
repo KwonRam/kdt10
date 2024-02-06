@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -12,12 +12,13 @@ import './CSS/reset.css';
 //적 데이터를 불러들임
 
 function StoryDemo() {
+  let { chapter, ep } = useParams();
   const [scene, setScene] = useState([]);
 
   useEffect(() => {
     // EnemyDeckData를 가져 오는 API 엔드 포인트가 있다고 가정합니다.
     axios
-      .get(`/api/enemyDeck?chapter=${chapter}&ep=${ep}`)
+      .get(`/api/storyScript/?chapter=${chapter}&ep=${ep}`)
       .then((response) => {
         console.log('res.data.testmap ', response.data.script);
         console.log('res.data[0] ', response.data[0]);
@@ -70,10 +71,18 @@ function StoryDemo() {
       backGround: '/img/backGround/lake.png',
     },
   ];*/
+  const navigate = useNavigate();
   const [i, setI] = useState(0);
   const onChangeIndex = () => {
-    //event.preventDefault();
-    setI(i + 1);
+    if (i < scene.length - 1 && scene.length !== 0) {
+      setI(i + 1);
+    } else {
+      // If all scenes are displayed, navigate to the next page
+      console.log(
+        'All scenes are displayed. You can navigate to the next page.'
+      );
+      navigate('/BattlePrep/' + `${chapter}` + '/' + `${ep}`);
+    }
   };
   useEffect(() => {
     console.log('useEffect i ', i);
@@ -107,16 +116,16 @@ function StoryDemo() {
           <img
             src={
               i >= scene.length
-                ? process.env.PUBLIC_URL + `${scene[i].leftPortrait}`
-                : process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+                ? process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+                : process.env.PUBLIC_URL + `${scene[i].leftPortrait}`
             }
             style={{ height: '660px' }}
           ></img>
           <img
             src={
               i >= scene.length
-                ? process.env.PUBLIC_URL + `${scene[i].rightPortrait}`
-                : process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+                ? process.env.PUBLIC_URL + '/img/portrait/defalt/defalt.png'
+                : process.env.PUBLIC_URL + `${scene[i].rightPortrait}`
             }
             style={{ height: '660px' }}
           ></img>
@@ -143,7 +152,7 @@ function StoryDemo() {
               fontFamily: 'NanumSquareNeo-Variable',
             }}
           >
-            {i >= scene.length ? scene[i].charSpeakingName : ''}
+            {i >= scene.length ? '' : scene[i].charSpeakingName}
           </div>
           <div
             className="StoryScript"
@@ -155,14 +164,14 @@ function StoryDemo() {
               fontFamily: 'NanumSquareNeo-Variable',
             }}
           >
-            {i >= scene.length ? scene[i].script : ''}
+            {i >= scene.length ? '' : scene[i].script}
           </div>
         </div>
         <img
           src={
             i >= scene.length
-              ? process.env.PUBLIC_URL + `${scene[i].backGround}`
-              : process.env.PUBLIC_URL + `${scene[scene.length - 1].backGround}`
+              ? process.env.PUBLIC_URL + '/img/backGround/lake.png'
+              : process.env.PUBLIC_URL + `${scene[i].backGround}`
           }
           style={{
             position: 'absolute',
