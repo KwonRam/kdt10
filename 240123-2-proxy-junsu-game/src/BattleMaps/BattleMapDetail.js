@@ -1027,91 +1027,58 @@ function BattleMapDetail() {
         display: 'block',
       }}
     >
-      <div className="quaterView">
-        <div className="enemyMini25D" style={{ display: 'block' }}>
-          {enemyLineReverse.map((item) => {
-            let { x, y } = positionIn25DView(item);
-            //let xString = `'` + x.toString() + 'px' + `'`;
-            //let yString = `'` + y.toString() + 'px' + `'`;
-            //console.log(xString, yString);
-            x = x + 200;
-            return (
-              <div
-                key={item.id}
-                style={{
-                  position: 'absolute',
-                  left: x.toString() + 'px',
-                  top: y.toString() + 'px',
-                  transform: 'translate(-50%, -50%)', // 화면 중앙을 기준으로 배치
-                }}
-              >
-                <img
-                  src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                  style={{
-                    border:
-                      turnInformation.resultSpeed[0].id === item.id
-                        ? '1px solid red'
-                        : '1px solid transparent',
-                    height: '200px',
-                    position: 'inherit',
-                  }}
-                  alt={`${item.img}_mini`}
-                  onClick={() => onShowStatDetail(item.id)}
-                  onDrop={() => onDragDefender(item)}
-                  onDragOver={onDragOver}
-                ></img>
-              </div>
-            );
-          })}
-        </div>
-        <div className="ourMini25D" style={{ display: 'block' }}>
-          {ourLine.map((item) => {
-            let { x, y } = positionIn25DView(item);
-            //let xString = `'` + x.toString() + 'px' + `'`;
-            //let yString = `'` + y.toString() + 'px' + `'`;
-            //console.log(xString, yString);
-            x = x + 400;
-
-            return (
-              <div
-                key={item.id}
-                style={{
-                  position: 'absolute',
-                  right: x.toString() + 'px',
-                  top: y.toString() + 'px',
-                  transform: 'translate(-50%, -50%)', // 화면 중앙을 기준으로 배치
-                  zIndex: 10 - item.Position,
-                }}
-              >
-                <img
-                  src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
-                  style={{
-                    border:
-                      turnInformation.resultSpeed[0].id === item.id
-                        ? '1px solid red'
-                        : '1px solid transparent',
-                    height: '200px',
-                    position: 'inherit',
-                  }}
-                  alt={`${item.img}_mini`}
-                  onClick={() => onShowStatDetail(item.id)}
-                  onDrop={() => onDragDefender(item)}
-                  onDragOver={onDragOver}
-                ></img>
-              </div>
-            );
-          })}
-        </div>
+      <div className="BossBox">
+        <table
+          className="EnemyTable"
+          style={{ border: '1px solid black', borderCollapse: 'collapse' }}
+        >
+          <tbody>
+            <tr
+              style={{ border: '1px solid black', borderCollapse: 'collapse' }}
+            >
+              {enemyLine.map((item) => {
+                return (
+                  <td key={item.id}>
+                    <div
+                      style={{
+                        display: 'flex',
+                      }}
+                    >
+                      <div
+                        style={{
+                          border:
+                            turnInformation.resultSpeed[0].id === item.id
+                              ? '2px solid red'
+                              : '2px solid transparent',
+                        }}
+                      >
+                        <img
+                          src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                          style={{ width: '120px', position: 'relative' }}
+                          alt={`${item.img}`}
+                          onClick={() => onShowStatDetail(item.id)}
+                        ></img>
+                      </div>
+                      <div>
+                        <div className="skillButton">
+                          <div>패시브: {item.passiveSkill}</div>
+                          <div>액티브1: {item.activeSkillFirst}</div>
+                        </div>
+                        <div className="statBar">
+                          <p>
+                            체력: {item.HPcurrent}/{item.HPstat}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div
-        className="InfoBox"
-        style={{
-          display: 'flex',
-          height: '480px',
-          position: 'absolute',
-          bottom: '0px',
-        }}
-      >
+      <div className="InfoBox" style={{ display: 'flex', height: '560px' }}>
         <div>
           <p>턴 정보</p>
           <div>규칙: 턴 내 행동 순서는 속도로 판정</div>
@@ -1203,18 +1170,6 @@ function BattleMapDetail() {
               >
                 {characterStatDetail.activeSkillFirst} (A1)
               </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'A2')}
-              >
-                {characterStatDetail.activeSkillSecond} (A2)
-              </button>
-              <button
-                value={characterStatDetail.id}
-                onClick={(e) => handleSkillSelect(e, 'U')}
-              >
-                {characterStatDetail.ultSkill} (U)
-              </button>
             </div>
             <div
               style={{
@@ -1279,7 +1234,118 @@ function BattleMapDetail() {
             );
           })}
         </div>
+        <div className="miniView">
+          <div
+            style={{
+              height: '300px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <div style={{ fontSize: '28pt' }}>Show Stage</div>
+            <div style={{ fontSize: '16pt' }}>Drag and Drop to Target</div>
+          </div>
+          <div style={{ display: 'flex' }}>
+            <div className="enemyMini" style={{ display: 'flex' }}>
+              {enemyLineReverse.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <img
+                      src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                      style={{
+                        border:
+                          turnInformation.resultSpeed[0].id === item.id
+                            ? '1px solid red'
+                            : '1px solid transparent',
+                        height: '125px',
+                        position: 'relative',
+                      }}
+                      alt={`${item.img}_mini`}
+                      onClick={() => onShowStatDetail(item.id)}
+                      onDrop={() => onDragDefender(item)}
+                      onDragOver={onDragOver}
+                    ></img>
+                  </div>
+                );
+              })}
+            </div>
+            <div style={{ width: '40px' }}></div>
+            <div className="ourMini" style={{ display: 'flex' }}>
+              {ourLine.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <img
+                      src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                      style={{
+                        border:
+                          turnInformation.resultSpeed[0].id === item.id
+                            ? '1px solid red'
+                            : '1px solid transparent',
+                        height: '125px',
+                        position: 'relative',
+                      }}
+                      alt={`${item.img}_mini`}
+                      onClick={() => onShowStatDetail(item.id)}
+                      onDragStart={() => onDragAttacker(item)}
+                      onDragOver={onDragOver}
+                    ></img>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
+      <table
+        className="TeamTable"
+        style={{ border: '1px solid black', borderCollapse: 'collapse' }}
+      >
+        <tbody>
+          <tr style={{ border: '1px solid black', borderCollapse: 'collapse' }}>
+            {ourLine.map((item) => {
+              return (
+                <td key={item.id}>
+                  <div
+                    style={{
+                      display: 'flex',
+                    }}
+                  >
+                    <div
+                      style={{
+                        border:
+                          turnInformation.resultSpeed[0].id === item.id
+                            ? '2px solid red'
+                            : '2px solid transparent',
+                      }}
+                    >
+                      <img
+                        src={process.env.PUBLIC_URL + `/img/${item.img}.png`}
+                        style={{ width: '120px', position: 'relative' }}
+                        alt={`${item.img}`}
+                        onClick={() => onShowStatDetail(item.id)}
+                      ></img>
+                    </div>
+                    <div>
+                      <div className="skillInfo">
+                        <div>패시브: {item.passiveSkill}</div>
+                        <div>액티브1: {item.activeSkillFirst}</div>
+                      </div>
+                      <div className="statBar">
+                        <p>
+                          체력: {item.HPcurrent}/{item.HPstat}
+                        </p>
+                        <p>호감도: {item.lovePointStack}</p>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
